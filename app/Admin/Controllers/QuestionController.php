@@ -2,19 +2,20 @@
 
 namespace App\Admin\Controllers;
 
+use App\Question;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Show;
 
-class ExampleController extends AdminController
+class QuestionController extends AdminController
 {
     /**
      * Title for current resource.
      *
      * @var string
      */
-    protected $title = 'Example controller';
+    protected $title = 'Question';
 
     /**
      * Make a grid builder.
@@ -23,11 +24,14 @@ class ExampleController extends AdminController
      */
     protected function grid()
     {
-        $grid = new Grid(new ExampleModel);
+        $grid = new Grid(new Question());
 
-        $grid->column('id', __('ID'))->sortable();
+        $grid->column('id', __('Id'));
+        $grid->column('topic_id', __('Topic id'));
+        $grid->column('question', __('Question'));
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
+        $grid->column('deleted_at', __('Deleted at'));
 
         return $grid;
     }
@@ -35,16 +39,19 @@ class ExampleController extends AdminController
     /**
      * Make a show builder.
      *
-     * @param mixed   $id
+     * @param mixed $id
      * @return Show
      */
     protected function detail($id)
     {
-        $show = new Show(ExampleModel::findOrFail($id));
+        $show = new Show(Question::findOrFail($id));
 
-        $show->field('id', __('ID'));
+        $show->field('id', __('Id'));
+        $show->field('topic_id', __('Topic id'));
+        $show->field('question', __('Question'));
         $show->field('created_at', __('Created at'));
         $show->field('updated_at', __('Updated at'));
+        $show->field('deleted_at', __('Deleted at'));
 
         return $show;
     }
@@ -56,11 +63,10 @@ class ExampleController extends AdminController
      */
     protected function form()
     {
-        $form = new Form(new ExampleModel);
+        $form = new Form(new Question());
 
-        $form->display('id', __('ID'));
-        $form->display('created_at', __('Created At'));
-        $form->display('updated_at', __('Updated At'));
+        $form->number('topic_id', __('Topic id'));
+        $form->textarea('question', __('Question'));
 
         return $form;
     }

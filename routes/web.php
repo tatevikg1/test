@@ -19,4 +19,9 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'TopicController@index')->name('home');
+
+Route::get('/topics', 'TopicController@index');
+
+Route::get('/test/{topic}-{slug}', 'TestController@show');
+Route::post('/test/{topic}-{slug}', 'TestController@store');

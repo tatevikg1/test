@@ -3,19 +3,28 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
 
 class Question extends Model
 {
-    protected $guarded = [];
+    use SoftDeletes;
 
-    public function quiz()
+    protected $fillable = ['question', 'topic_id'];
+
+
+    public function setTopicIdAttribute($input)
     {
-        return $this->belongsTo(Quiz::class);
+        $this->attributes['topic_id'] = $input ? $input : null;
     }
 
-    public function answers()
+    public function topic()
     {
-        return $this->hasMany(Answer::class);
+        return $this->belongsTo(Topic::class)->withTrashed();
     }
 
+    public function questions_options()
+    {
+        return $this->hasMany(QuestionsOption::class)->withTrashed();
+    }
 }
