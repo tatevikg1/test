@@ -17,7 +17,6 @@ class CreateResultsTable extends Migration
             $table->id();
             $table->foreignId('user_id');
             $table->string('correct')->nullable();
-            $table->datetime('date')->nullable();
             $table->foreignId('question_id');
 
             $table->timestamps();

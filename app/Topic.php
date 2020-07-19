@@ -10,11 +10,16 @@ class Topic extends Model
 {
     use SoftDeletes;
 
-    protected $fillable = ['title'];
+    protected $guarded = [];
 
 
     public function questions()
     {
         return $this->hasMany(Question::class)->withTrashed();
+    }
+
+    public function tests()
+    {
+        return $this->hasMany(User::class)->withTrashed();
     }
 }

@@ -15,7 +15,7 @@ class CreateQuestionsOptionsTable extends Migration
     {
         Schema::create('questions_options', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('question_id')->nullable()->constrained();
+            $table->foreignId('question_id');
             $table->string('option')->nullable();
             $table->boolean('correct')->default(0);
 

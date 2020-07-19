@@ -16,8 +16,8 @@ class CreateTestsTable extends Migration
         Schema::create('tests', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
-            $table->text('result')->nullable();
-
+            $table->foreignId('topic_id');
+            
             $table->timestamps();
             $table->softDeletes();
             $table->index(['deleted_at']);
