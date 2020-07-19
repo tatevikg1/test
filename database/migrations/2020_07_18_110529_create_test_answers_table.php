@@ -15,10 +15,10 @@ class CreateTestAnswersTable extends Migration
     {
         Schema::create('test_answers', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id');
-            $table->foreignId('question_id');
+            $table->foreignId('test_id');
+            $table->integer('question_id');
             //$table->tinyInteger('correct');
-            $table->integer('option_id');
+            $table->integer('questions_option_id');
 
             $table->timestamps();
             $table->softDeletes();

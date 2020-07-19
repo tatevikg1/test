@@ -14,8 +14,13 @@ Route::group([
     $router->get('/', 'HomeController@index')->name('home');
 
     $router->resource('users', UserController::class);
+
     $router->resource('topics', TopicController::class);
     $router->resource('questions', QuestionController::class);
     $router->resource('questions-options', QuestionsOptionController::class);
+    
+    $router->resource('tests', TestController::class);
+    $router->resource('test-answers', TestAnswerController::class);
+
 
 });

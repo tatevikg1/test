@@ -10,13 +10,8 @@ class Question extends Model
 {
     use SoftDeletes;
 
-    protected $fillable = ['question', 'topic_id'];
+    protected $guarded = [];
 
-
-    public function setTopicIdAttribute($input)
-    {
-        $this->attributes['topic_id'] = $input ? $input : null;
-    }
 
     public function topic()
     {

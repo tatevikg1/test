@@ -14,7 +14,7 @@ class TestAnswer extends Model
 
     public function test()
     {
-        return $this->belogsTo(Test::class)->withTrashed();
+        return $this->belongsTo(Test::class)->withTrashed();
     }
 
 }

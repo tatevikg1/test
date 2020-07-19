@@ -37,9 +37,7 @@
                     </div>
                 @endforeach
 
-                <input type="hidden" name="test[user_id]" value="{{ Auth::user()->id }}">
-                <input type="hidden" name="test[date]" value="{{ date('Y-m-d H:i:s') }}">
-
+            
                 <input type="submit" class="btn btn-dark" value='Submit Answers'>
             </form>
 

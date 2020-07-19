@@ -18,8 +18,13 @@ class Topic extends Model
         return $this->hasMany(Question::class)->withTrashed();
     }
 
+    public function user()
+    {
+        return $this->belongsToMany(User::class)->withTrashed();
+    }
+
     public function tests()
     {
-        return $this->hasMany(User::class)->withTrashed();
+        return $this->hasMany(Test::class)->withTrashed();
     }
 }

@@ -13,19 +13,13 @@ class User extends Authenticatable
     use SoftDeletes, Notifiable;
 
 
-    protected $fillable = [
-        'name', 'email', 'password'
-    ];
+    protected $fillable = ['name', 'email', 'password'];
 
 
-    protected $hidden = [
-        'password', 'remember_token',
-    ];
+    protected $hidden = ['password', 'remember_token',];
 
 
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    protected $casts = ['email_verified_at' => 'datetime',];
 
 
     public function tests()

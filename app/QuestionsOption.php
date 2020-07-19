@@ -9,12 +9,12 @@ class QuestionsOption extends Model
 {
     use SoftDeletes;
 
-        protected $fillable = ['option', 'correct', 'question_id'];
+    protected $guarded = [];
 
 
-        public function question()
-        {
-            return $this->belongsTo(Question::class)->withTrashed();
-        }
+    public function question()
+    {
+        return $this->belongsTo(Question::class)->withTrashed();
+    }
 
 }
