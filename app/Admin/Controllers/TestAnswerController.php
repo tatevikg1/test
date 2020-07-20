@@ -30,6 +30,7 @@ class TestAnswerController extends AdminController
         $grid->column('test_id', __('Test id'));
         $grid->column('question_id', __('Question id'));
         $grid->column('questions_option_id', __('Questions option id'));
+        $grid->column('point', __('Point'));
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
         $grid->column('deleted_at', __('Deleted at'));
@@ -51,6 +52,7 @@ class TestAnswerController extends AdminController
         $show->field('test_id', __('Test id'));
         $show->field('question_id', __('Question id'));
         $show->field('questions_option_id', __('Questions option id'));
+        $show->field('point', __('Point'));
         $show->field('created_at', __('Created at'));
         $show->field('updated_at', __('Updated at'));
         $show->field('deleted_at', __('Deleted at'));
@@ -58,11 +60,7 @@ class TestAnswerController extends AdminController
         return $show;
     }
 
-    /**
-     * Make a form builder.
-     *
-     * @return Form
-     */
+
     protected function form()
     {
         $form = new Form(new TestAnswer());
@@ -70,6 +68,8 @@ class TestAnswerController extends AdminController
         $form->number('test_id', __('Test id'));
         $form->number('question_id', __('Question id'));
         $form->number('questions_option_id', __('Questions option id'));
+        $form->number('point', __('Point'));
+
 
         return $form;
     }

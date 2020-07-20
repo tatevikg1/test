@@ -29,7 +29,7 @@ class QuestionsOptionController extends AdminController
         $grid->column('id', __('Id'));
         $grid->column('question_id', __('Question id'));
         $grid->column('option', __('Option'));
-        $grid->column('correct', __('Correct'));
+        $grid->column('point', __('Point'));
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
         $grid->column('deleted_at', __('Deleted at'));
@@ -50,7 +50,7 @@ class QuestionsOptionController extends AdminController
         $show->field('id', __('Id'));
         $show->field('question_id', __('Question id'));
         $show->field('option', __('Option'));
-        $show->field('correct', __('Correct'));
+        $show->field('point', __('Point'));
         $show->field('created_at', __('Created at'));
         $show->field('updated_at', __('Updated at'));
         $show->field('deleted_at', __('Deleted at'));
@@ -69,7 +69,7 @@ class QuestionsOptionController extends AdminController
 
         $form->number('question_id', __('Question id'));
         $form->text('option', __('Option'));
-        $form->number('correct', __('Correct'));
+        $form->number('point', __('Point'));
 
         return $form;
     }

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Topic;
 use App\Test;
+use App\User;
 
 class TestController extends Controller
 {
@@ -26,11 +27,12 @@ class TestController extends Controller
         return view('test.show', compact('topic'));
     }
 
-    public function store(Topic $topic, Test $test)
+    public function store(Topic $topic, Test $test, User $user)
     {
         $data = request()->validate([
             'responses.*.questions_option_id'=>'required',
             'responses.*.question_id'=>'required',
+            'responses.*.point'=>'required',
         ]);
 
         $t = new Test;
@@ -39,8 +41,8 @@ class TestController extends Controller
         $t->save();
 
         $t->testAnswers()->createMany($data['responses']);
+        $user = Auth::user();
 
-
-        return "thank you";
+        return view('result.show', compact('t', 'topic', 'user'));
     }
 }

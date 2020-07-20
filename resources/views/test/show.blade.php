@@ -27,6 +27,7 @@
                                                 value="{{ $questions_option->id }}" class="mr-2" id="questions_option{{ $questions_option->id }}"
                                                 {{ (old('responses.'.$key.'.questions_option_id') == $questions_option->id) ? 'checked' : ''}}>
                                             <input type="hidden" name="responses[{{ $key }}][question_id]" value="{{ $question->id }}">
+                                            <input type="hidden" name="responses[{{ $key }}][point]" value="{{ $questions_option->point }}">
                                             {{ $questions_option->option }}
                                         </li>
                                     </label>
@@ -37,7 +38,7 @@
                     </div>
                 @endforeach
 
-            
+
                 <input type="submit" class="btn btn-dark" value='Submit Answers'>
             </form>
 

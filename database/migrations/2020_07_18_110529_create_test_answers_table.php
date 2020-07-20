@@ -17,7 +17,7 @@ class CreateTestAnswersTable extends Migration
             $table->id();
             $table->foreignId('test_id');
             $table->integer('question_id');
-            //$table->tinyInteger('correct');
+            $table->integer('point');
             $table->integer('questions_option_id');
 
             $table->timestamps();
