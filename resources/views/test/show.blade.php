@@ -23,10 +23,10 @@
                                 @foreach($question->questions_options as $questions_option)
                                     <label for="questions_option{{ $questions_option->id }}">
                                         <li class="list-group-item">
-                                            <input type="radio" name="responses[{{ $key }}][questions_option_id]"
-                                                value="{{ $questions_option->id }}" class="mr-2" id="questions_option{{ $questions_option->id }}"
+                                            <input type="radio" name="responses[{{ $key }}][questions_option]"
+                                                value="{{ $questions_option->option }}" class="mr-2" id="questions_option{{ $questions_option->id }}"
                                                 {{ (old('responses.'.$key.'.questions_option_id') == $questions_option->id) ? 'checked' : ''}}>
-                                            <input type="hidden" name="responses[{{ $key }}][question_id]" value="{{ $question->id }}">
+                                            <input type="hidden" name="responses[{{ $key }}][question]" value="{{ $question->question }}">
                                             <input type="hidden" name="responses[{{ $key }}][point]" value="{{ $questions_option->point }}">
                                             {{ $questions_option->option }}
                                         </li>

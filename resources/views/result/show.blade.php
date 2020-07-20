@@ -8,20 +8,31 @@
                 <div class="card-header">{{ $t->topic->title }}</div>
             </div>
             <div class="container">
-                <p>Dear {{ $user->name }} </p>
+                <p>Dear {{ $user->name }} your score is {{ $score }}%</p>
             </div>
 
             <div class="container">
                 @foreach ($t->testAnswers as $testAnswer)
 
-                    {{ $testAnswer->question_id }}
+                <div class="card mb-3">
+                    <div class="card-header">
+                        {{ $testAnswer->question }}
+                    </div>
+                    <div class="card-header">
+                        {{ $testAnswer->questions_option }}
+                    </div>
+
+                    @if( $testAnswer->point == 0)
+                        <div class="card-header text-danger">Wrong Answer</div>
+                    @else
+                        <div class="card-header text-success">Correct Answer</div>
+                    @endif
+
+                </div>
 
                 @endforeach
 
             </div>
-
-
-
         </div>
     </div>
 </div>

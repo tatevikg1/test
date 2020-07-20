@@ -28,8 +28,8 @@ class TestAnswerController extends AdminController
 
         $grid->column('id', __('Id'));
         $grid->column('test_id', __('Test id'));
-        $grid->column('question_id', __('Question id'));
-        $grid->column('questions_option_id', __('Questions option id'));
+        $grid->column('question', __('Question'));
+        $grid->column('questions_option', __('Answer'));
         $grid->column('point', __('Point'));
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
@@ -50,8 +50,8 @@ class TestAnswerController extends AdminController
 
         $show->field('id', __('Id'));
         $show->field('test_id', __('Test id'));
-        $show->field('question_id', __('Question id'));
-        $show->field('questions_option_id', __('Questions option id'));
+        $show->field('question', __('Question'));
+        $show->field('questions_option', __('Questions option'));
         $show->field('point', __('Point'));
         $show->field('created_at', __('Created at'));
         $show->field('updated_at', __('Updated at'));
@@ -66,8 +66,8 @@ class TestAnswerController extends AdminController
         $form = new Form(new TestAnswer());
 
         $form->number('test_id', __('Test id'));
-        $form->number('question_id', __('Question id'));
-        $form->number('questions_option_id', __('Questions option id'));
+        $form->number('question', __('Question'));
+        $form->number('questions_option', __('Questions option'));
         $form->number('point', __('Point'));
 
 

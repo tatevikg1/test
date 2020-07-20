@@ -16,9 +16,9 @@ class CreateTestAnswersTable extends Migration
         Schema::create('test_answers', function (Blueprint $table) {
             $table->id();
             $table->foreignId('test_id');
-            $table->integer('question_id');
+            $table->string('question');
             $table->integer('point');
-            $table->integer('questions_option_id');
+            $table->string('questions_option');
 
             $table->timestamps();
             $table->softDeletes();
