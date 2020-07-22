@@ -11,5 +11,6 @@ $factory->define(Question::class, function (Faker $faker) {
     return [
         'topic_id' => $faker->numberBetween($min = 1, $max = 5),
         'question' => $faker->sentence,
+        'point' => $faker->numberBetween($min = 1, $max = 5),
     ];
 });

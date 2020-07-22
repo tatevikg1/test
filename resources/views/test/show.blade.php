@@ -12,7 +12,12 @@
 
                 @foreach($topic->questions as $key=>$question)
                     <div class="card mt-4">
-                        <div class="card-header"><strong class="mr-4">{{ $key+1 }}</strong>{{ $question->question  }}</div>
+                        <div class="card-header">
+                            <strong class="mr-4">{{ $key+1 }}</strong>
+                            {{ $question->question  }}
+                            <small style="position: absolute; right:10px;">{{ $question->point }} point(s)</small>
+                        </div>
+
 
                         <div class="card-body">
                             @error('responses.'.$key.'.questions_option_id')
@@ -23,11 +28,10 @@
                                 @foreach($question->questions_options as $questions_option)
                                     <label for="questions_option{{ $questions_option->id }}">
                                         <li class="list-group-item">
-                                            <input type="radio" name="responses[{{ $key }}][questions_option]"
-                                                value="{{ $questions_option->option }}" class="mr-2" id="questions_option{{ $questions_option->id }}"
+                                            <input type="radio" name="responses[{{ $key }}][questions_option_id]"
+                                                value="{{ $questions_option->id }}" class="mr-2" id="questions_option{{ $questions_option->id }}"
                                                 {{ (old('responses.'.$key.'.questions_option_id') == $questions_option->id) ? 'checked' : ''}}>
-                                            <input type="hidden" name="responses[{{ $key }}][question]" value="{{ $question->question }}">
-                                            <input type="hidden" name="responses[{{ $key }}][point]" value="{{ $questions_option->point }}">
+                                            <input type="hidden" name="responses[{{ $key }}][question_id]" value="{{ $question->id }}">
                                             {{ $questions_option->option }}
                                         </li>
                                     </label>

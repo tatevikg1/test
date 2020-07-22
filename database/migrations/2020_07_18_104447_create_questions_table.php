@@ -17,6 +17,7 @@ class CreateQuestionsTable extends Migration
             $table->id();
             $table->foreignId('topic_id')->nullable();
             $table->text('question')->nullable();
+            $table->integer('point')->nullable();
 
             $table->timestamps();
             $table->softDeletes();

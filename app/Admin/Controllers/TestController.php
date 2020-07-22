@@ -29,6 +29,7 @@ class TestController extends AdminController
         $grid->column('id', __('Id'));
         $grid->column('user_id', __('User id'));
         $grid->column('topic_id', __('Topic id'));
+        $grid->column('score', __('Score'));
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
         $grid->column('deleted_at', __('Deleted at'));
@@ -49,6 +50,7 @@ class TestController extends AdminController
         $show->field('id', __('Id'));
         $show->field('user_id', __('User id'));
         $show->field('topic_id', __('Topic id'));
+        $show->field('score', __('Score'));
         $show->field('created_at', __('Created at'));
         $show->field('updated_at', __('Updated at'));
         $show->field('deleted_at', __('Deleted at'));

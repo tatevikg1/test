@@ -17,4 +17,14 @@ class TestAnswer extends Model
         return $this->belongsTo(Test::class)->withTrashed();
     }
 
+    public function questionsOption()
+    {
+        return $this->belongsTo(QuestionsOption::class);
+    }
+
+    public function question()
+    {
+        return $this->belongsTo(Question::class);
+    }
+
 }

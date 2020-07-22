@@ -17,7 +17,7 @@ class CreateQuestionsOptionsTable extends Migration
             $table->id();
             $table->foreignId('question_id');
             $table->string('option')->nullable();
-            $table->tinyInteger('point')->default(0);
+            $table->tinyInteger('correct')->default(0);
 
             $table->timestamps();
             $table->softDeletes();

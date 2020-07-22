@@ -22,4 +22,9 @@ class Question extends Model
     {
         return $this->hasMany(QuestionsOption::class)->withTrashed();
     }
+
+    public function testAnswers()
+    {
+        return $this->hasMany(TestAnswer::class);
+    }
 }

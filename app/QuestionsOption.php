@@ -17,4 +17,9 @@ class QuestionsOption extends Model
         return $this->belongsTo(Question::class)->withTrashed();
     }
 
+    public function testAnswers()
+    {
+        return $this->belongsToMany(TestAnswer::class);
+    }
+
 }

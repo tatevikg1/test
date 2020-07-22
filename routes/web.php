@@ -26,4 +26,5 @@ Route::get('/topics', 'TopicController@index');
 Route::get('/test/{topic}-{slug}', 'TestController@show');
 Route::post('/test/{topic}-{slug}', 'TestController@store');
 
-Route::get('/result/{topic}', 'ResultController@show')->name('result.show');
+Route::get('/results/{test}', 'ResultController@show')->name('result.show');
+Route::get('/results', 'ResultController@index')->name('result.index');

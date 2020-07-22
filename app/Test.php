@@ -25,6 +25,6 @@ class Test extends Model
 
     public function user()
     {
-        return $this->belogsTo(User::class)->withTrashed();
+        return $this->belongsTo(User::class)->withTrashed();
     }
 }
