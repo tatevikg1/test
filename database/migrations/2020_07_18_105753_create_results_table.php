@@ -6,11 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateResultsTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+
     public function up()
     {
         Schema::create('results', function (Blueprint $table) {
@@ -18,19 +14,11 @@ class CreateResultsTable extends Migration
             $table->foreignId('user_id');
             $table->string('correct')->nullable();
             $table->foreignId('question_id');
-
             $table->timestamps();
-            $table->softDeletes();
-            $table->index(['deleted_at']);
-
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
+
     public function down()
     {
         Schema::dropIfExists('results');

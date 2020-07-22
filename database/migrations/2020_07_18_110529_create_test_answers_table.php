@@ -6,11 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateTestAnswersTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+
     public function up()
     {
         Schema::create('test_answers', function (Blueprint $table) {
@@ -19,20 +15,11 @@ class CreateTestAnswersTable extends Migration
             $table->foreignId('question_id');
             $table->integer('correct')->nullable();
             $table->foreignId('questions_option_id');
-
             $table->timestamps();
-            $table->softDeletes();
-            $table->index(['deleted_at']);
-
-
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
+
     public function down()
     {
         Schema::dropIfExists('test_answers');

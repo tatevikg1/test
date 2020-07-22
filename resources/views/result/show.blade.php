@@ -38,10 +38,9 @@
             </div>
         </div>
     @else
-        <div class="">
-            You are not authorized to see this pages content.
+        <div class="container">
+            Invalid test number.
         </div>
-
     @endif
 </div>
 @endsection

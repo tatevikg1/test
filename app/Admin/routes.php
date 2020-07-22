@@ -18,9 +18,8 @@ Route::group([
     $router->resource('topics', TopicController::class);
     $router->resource('questions', QuestionController::class);
     $router->resource('questions-options', QuestionsOptionController::class);
-    
+
     $router->resource('tests', TestController::class);
     $router->resource('test-answers', TestAnswerController::class);
-
 
 });

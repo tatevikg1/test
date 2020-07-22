@@ -13,10 +13,7 @@ class CreateTestsTable extends Migration
             $table->foreignId('user_id');
             $table->foreignId('topic_id');
             $table->integer('score')->nullable();
-
             $table->timestamps();
-            $table->softDeletes();
-            $table->index(['deleted_at']);
         });
     }
 

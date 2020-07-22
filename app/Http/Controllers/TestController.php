@@ -16,6 +16,13 @@ class TestController extends Controller
         $this->middleware('auth');
     }
 
+    public function index()
+    {
+        $topics = Topic::all();
+
+        return view('test.index', compact('topics'));
+    }
+
     public function show(Topic $topic, $slug)
     {
         //$quiz->load('questions.answers');

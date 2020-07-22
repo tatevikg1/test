@@ -3,28 +3,25 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
 
 class Test extends Model
 {
-    use SoftDeletes;
-
     protected $guarded = [];
 
 
     public function topic()
     {
-        return $this->belongsTo(Topic::class)->withTrashed();
+        return $this->belongsTo(Topic::class);
     }
 
     public function testAnswers()
     {
-        return $this->hasMany(TestAnswer::class)->withTrashed();
+        return $this->hasMany(TestAnswer::class);
     }
 
     public function user()
     {
-        return $this->belongsTo(User::class)->withTrashed();
+        return $this->belongsTo(User::class);
     }
 }

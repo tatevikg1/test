@@ -5,12 +5,11 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
 
 class User extends Authenticatable
 {
-    use SoftDeletes, Notifiable;
+    use  Notifiable;
 
 
     protected $fillable = ['name', 'email', 'password'];
@@ -24,12 +23,12 @@ class User extends Authenticatable
 
     public function tests()
     {
-        return $this->hasMany(Test::class)->withTrashed();
+        return $this->hasMany(Test::class);
     }
 
     public function topics()
     {
-        return $this->hasMany(Topic::class)->withTrashed();
+        return $this->hasMany(Topic::class);
     }
 
 }

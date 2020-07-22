@@ -6,24 +6,17 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateAdminTables extends Migration
 {
-    /**
-     * {@inheritdoc}
-     */
     public function getConnection()
     {
         return config('admin.database.connection') ?: config('database.default');
     }
 
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+
     public function up()
     {
         Schema::create(config('admin.database.users_table'), function (Blueprint $table) {
             $table->increments('id');
-            $table->string('username', 190)->unique();
+            $table->string('username', 90)->unique();
             $table->string('password', 60);
             $table->string('name');
             $table->string('avatar')->nullable();
@@ -99,11 +92,7 @@ class CreateAdminTables extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
+
     public function down()
     {
         Schema::dropIfExists(config('admin.database.users_table'));
@@ -115,5 +104,6 @@ class CreateAdminTables extends Migration
         Schema::dropIfExists(config('admin.database.role_permissions_table'));
         Schema::dropIfExists(config('admin.database.role_menu_table'));
         Schema::dropIfExists(config('admin.database.operation_log_table'));
+
     }
 }

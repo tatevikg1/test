@@ -10,39 +10,30 @@ use Encore\Admin\Show;
 
 class QuestionController extends AdminController
 {
-    /**
-     * Title for current resource.
-     *
-     * @var string
-     */
+
     protected $title = 'Question';
 
-    /**
-     * Make a grid builder.
-     *
-     * @return Grid
-     */
+
     protected function grid()
     {
         $grid = new Grid(new Question());
 
-        $grid->column('id', __('Id'));
-        $grid->column('topic_id', __('Topic id'));
+        $grid->actions(function (Grid\Displayers\Actions $actions) {
+            $actions->disableView();
+        });
+        $grid->disableFilter();
+
+        $grid->column('id', __('Id'))->sortable();
+        $grid->column('topic_id', __('Topic id'))->sortable();
         $grid->column('question', __('Question'));
         $grid->column('point', __('Point'));
-        $grid->column('created_at', __('Created at'));
-        $grid->column('updated_at', __('Updated at'));
-        $grid->column('deleted_at', __('Deleted at'));
+        $grid->column('created_at', __('Created at'))->date('Y-m-d | h:m');
+        $grid->column('updated_at', __('Updated at'))->date('Y-m-d | h:m');
 
         return $grid;
     }
 
-    /**
-     * Make a show builder.
-     *
-     * @param mixed $id
-     * @return Show
-     */
+
     protected function detail($id)
     {
         $show = new Show(Question::findOrFail($id));
@@ -51,18 +42,13 @@ class QuestionController extends AdminController
         $show->field('topic_id', __('Topic id'));
         $show->field('question', __('Question'));
         $show->field('point', __('Point'));
-        $show->field('created_at', __('Created at'));
-        $show->field('updated_at', __('Updated at'));
-        $show->field('deleted_at', __('Deleted at'));
+        $show->field('created_at', __('Created at'))->date('Y-m-d | h:m');
+        $show->field('updated_at', __('Updated at'))->date('Y-m-d | h:m');
 
         return $show;
     }
 
-    /**
-     * Make a form builder.
-     *
-     * @return Form
-     */
+
     protected function form()
     {
         $form = new Form(new Question());

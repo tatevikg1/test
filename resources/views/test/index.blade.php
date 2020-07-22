@@ -16,7 +16,7 @@
                             <div class="list-item" style="background-color:#eee; margin:10px;">
                                 <li class="list-group_item">
                                     <span class="ml-3">{{ $topic->title }}</span>
-                                    <a href="/test/{{ $topic->id }}-{{ Str::slug($topic->title) }}"
+                                    <a href="/tests/{{ $topic->id }}-{{ Str::slug($topic->title) }}"
                                         class="btn btn-dark"
                                         style="float:right"> Pass test</a>
                                 </li>

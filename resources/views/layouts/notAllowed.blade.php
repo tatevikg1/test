@@ -1,0 +1,4 @@
+@section('notAllowed')
+
+
+@endsection

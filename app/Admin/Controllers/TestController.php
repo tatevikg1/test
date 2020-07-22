@@ -7,42 +7,37 @@ use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Show;
+use Illuminate\Support\Facades\DB;
+
 
 class TestController extends AdminController
 {
-    /**
-     * Title for current resource.
-     *
-     * @var string
-     */
     protected $title = 'Test';
 
-    /**
-     * Make a grid builder.
-     *
-     * @return Grid
-     */
+
     protected function grid()
     {
         $grid = new Grid(new Test());
+
+        $grid->actions(function ($actions) {
+            $actions->disableEdit();
+        });
+        $grid->disableFilter();
+
+        //$grid->quickSearch('user_id');
+
 
         $grid->column('id', __('Id'));
         $grid->column('user_id', __('User id'));
         $grid->column('topic_id', __('Topic id'));
         $grid->column('score', __('Score'));
-        $grid->column('created_at', __('Created at'));
-        $grid->column('updated_at', __('Updated at'));
-        $grid->column('deleted_at', __('Deleted at'));
+        $grid->column('created_at', __('Created at'))->date('Y-m-d | h:m');
+        $grid->column('updated_at', __('Updated at'))->date('Y-m-d | h:m');
 
         return $grid;
     }
 
-    /**
-     * Make a show builder.
-     *
-     * @param mixed $id
-     * @return Show
-     */
+
     protected function detail($id)
     {
         $show = new Show(Test::findOrFail($id));
@@ -51,25 +46,10 @@ class TestController extends AdminController
         $show->field('user_id', __('User id'));
         $show->field('topic_id', __('Topic id'));
         $show->field('score', __('Score'));
-        $show->field('created_at', __('Created at'));
-        $show->field('updated_at', __('Updated at'));
-        $show->field('deleted_at', __('Deleted at'));
+        $show->field('created_at', __('Created at'))->date('Y-m-d | h:m');
+        $show->field('updated_at', __('Updated at'))->date('Y-m-d | h:m');
 
         return $show;
     }
 
-    /**
-     * Make a form builder.
-     *
-     * @return Form
-     */
-    protected function form()
-    {
-        $form = new Form(new Test());
-
-        $form->number('user_id', __('User id'));
-        $form->number('topic_id', __('Topic id'));
-
-        return $form;
-    }
 }

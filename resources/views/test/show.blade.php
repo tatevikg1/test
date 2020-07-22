@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header">{{ $topic->title }}</div>
             </div>
-            <form class="" action="/test/{{ $topic->id }}-{{ Str::slug($topic->title) }}" method="post">
+            <form class="" action="/tests/{{ $topic->id }}-{{ Str::slug($topic->title) }}" method="post">
                 @csrf
 
                 @foreach($topic->questions as $key=>$question)
@@ -21,7 +21,7 @@
 
                         <div class="card-body">
                             @error('responses.'.$key.'.questions_option_id')
-                                <small style="color:red">{{ $message }}</small>
+                                <small style="color:red">You haven't answered this question</small>
                             @enderror
 
                             <ul class="list-group">

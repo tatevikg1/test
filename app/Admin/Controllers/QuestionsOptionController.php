@@ -5,44 +5,37 @@ namespace App\Admin\Controllers;
 use App\QuestionsOption;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
-use Encore\Admin\Grid;
 use Encore\Admin\Show;
+use Encore\Admin\Grid;
+
 
 class QuestionsOptionController extends AdminController
 {
-    /**
-     * Title for current resource.
-     *
-     * @var string
-     */
     protected $title = 'QuestionsOption';
 
-    /**
-     * Make a grid builder.
-     *
-     * @return Grid
-     */
+
     protected function grid()
     {
         $grid = new Grid(new QuestionsOption());
 
-        $grid->column('id', __('Id'));
-        $grid->column('question_id', __('Question id'));
+        $grid->actions(function (Grid\Displayers\Actions $actions) {
+            $actions->disableView();
+        });
+        $grid->disableFilter();
+
+
+        $grid->column('id', __('Id'))->sortable();
+        $grid->column('question_id', __('Question id'))->sortable()//->expand(function ($model) {
+            //return $model->question->question;})
+            ;
         $grid->column('option', __('Option'));
-        $grid->column('point', __('Point'));
-        $grid->column('created_at', __('Created at'));
-        $grid->column('updated_at', __('Updated at'));
-        $grid->column('deleted_at', __('Deleted at'));
+        $grid->column('correct', __('Correct'));
+        $grid->column('created_at', __('Created at'))->date('Y-m-d | h:m');
+        $grid->column('updated_at', __('Updated at'))->date('Y-m-d | h:m');
 
         return $grid;
     }
 
-    /**
-     * Make a show builder.
-     *
-     * @param mixed $id
-     * @return Show
-     */
     protected function detail($id)
     {
         $show = new Show(QuestionsOption::findOrFail($id));
@@ -50,26 +43,23 @@ class QuestionsOptionController extends AdminController
         $show->field('id', __('Id'));
         $show->field('question_id', __('Question id'));
         $show->field('option', __('Option'));
-        $show->field('point', __('Point'));
-        $show->field('created_at', __('Created at'));
-        $show->field('updated_at', __('Updated at'));
-        $show->field('deleted_at', __('Deleted at'));
+        $show->field('correct', __('Correct'));
+        $show->field('created_at', __('Created at'))->date('Y-m-d | h:m');
+        $show->field('updated_at', __('Updated at'))->date('Y-m-d | h:m');
 
         return $show;
     }
 
-    /**
-     * Make a form builder.
-     *
-     * @return Form
-     */
+
     protected function form()
     {
         $form = new Form(new QuestionsOption());
 
+        $correct = [1 => 'correct', 0 => 'false'];
+
         $form->number('question_id', __('Question id'));
         $form->text('option', __('Option'));
-        $form->number('point', __('Point'));
+        $form->select('correct', __('Correct'))->options($correct);
 
         return $form;
     }

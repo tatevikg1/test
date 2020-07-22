@@ -24,13 +24,15 @@
 
                     <?php $count = 0; ?>
                     @foreach ($user->tests->reverse() as $key=>$test)
-                    <?php if($count == 10) break; ?>
-                    <tr data-toggle="tooltip" title="click on topic title to see more detales">
-                        <td><a style="color:black" href="/results/{{ $test->id }}">{{ $test->topic->title }}</a></td>
-                        <td>{{ $test->created_at }}</td>
-                        <td>{{ $test->score }}%</td>
-                    </tr>
-                    <?php $count++; ?>
+                        <?php if($count == 10) break; ?>
+
+                        <tr data-toggle="tooltip" title="click on topic title to see more detales">
+                            <td><a style="color:black" href="/results/{{ $test->id }}">{{ $test->topic->title }}</a></td>
+                            <td>{{ $test->created_at }}</td>
+                            <td>{{ $test->score }}%</td>
+                        </tr>
+                        
+                        <?php $count++; ?>
                     @endforeach
                 </table>
             </div>

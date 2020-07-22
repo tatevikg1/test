@@ -10,5 +10,6 @@ use Illuminate\Support\Str;
 $factory->define(Topic::class, function (Faker $faker) {
     return [
         'title' => $faker->word,
+        'admin_id' => 1,
     ];
 });
