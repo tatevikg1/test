@@ -4,13 +4,15 @@ namespace App\Admin\Controllers;
 
 use App\User;
 use Encore\Admin\Controllers\AdminController;
+Use Encore\Admin\Widgets\Table;
+
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Show;
 
 class UserController extends AdminController
 {
-    protected $title = 'User';
+    protected $title = 'Students';
 
 
     protected function grid()
@@ -18,9 +20,17 @@ class UserController extends AdminController
         $grid = new Grid(new User());
 
         $grid->column('id', __('Id'));
-        $grid->column('name', __('Name'));
-        $grid->column('email', __('Email'));
 
+        $grid->column('name', __('Name'))->expand(function ($model) {
+
+            $tests = $model->tests->map(function ($question) {
+
+                return $test->only(['id', 'topic_id', 'score', 'created_at']);
+            });
+            return new Table(['ID', 'Topic', 'Score', 'Created at'], $tests->toArray());
+        });
+
+        $grid->column('email', __('Email'));
         $grid->column('email_verified_at', __('Email verified at'));
         $grid->column('remember_token', __('Remember token'))->hide();
         $grid->column('created_at', __('Created at'))->date('Y-m-d | h:m');

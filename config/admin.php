@@ -11,7 +11,7 @@ return [
     | login page.
     |
     */
-    'name' => 'Laravel-admin',
+    'name' => 'Teacher',
 
     /*
     |--------------------------------------------------------------------------
@@ -22,7 +22,7 @@ return [
     | `img` tag, eg '<img src="http://logo-url" alt="Admin logo">'.
     |
     */
-    'logo' => '<b>Laravel</b> admin',
+    'logo' => '<b>Laravel</b> for teachers',
 
     /*
     |--------------------------------------------------------------------------
@@ -34,7 +34,7 @@ return [
     | '<img src="http://logo-url" alt="Admin logo">'.
     |
     */
-    'logo-mini' => '<b>La</b>',
+    'logo-mini' => '<b>LfT</b>',
 
     /*
     |--------------------------------------------------------------------------
@@ -85,7 +85,7 @@ return [
     | Html title for all pages.
     |
     */
-    'title' => 'Admin',
+    'title' => 'Teacher',
 
     /*
     |--------------------------------------------------------------------------
@@ -250,7 +250,7 @@ return [
     | Set a default avatar for newly created users.
     |
     */
-    'default_avatar' => '/vendor/laravel-admin/AdminLTE/dist/img/user2-160x160.jpg',
+    'default_avatar' => '/vendor/laravel-admin/AdminLTE/dist/img/scool.jpg',
 
     /*
     |--------------------------------------------------------------------------
@@ -276,7 +276,7 @@ return [
     |    "skin-red", "skin-red-light", "skin-black", "skin-black-light".
     |
     */
-    'skin' => 'skin-blue-light',
+    'skin' => 'skin-black',
 
     /*
     |--------------------------------------------------------------------------
@@ -290,7 +290,7 @@ return [
     | "sidebar-mini".
     |
     */
-    'layout' => ['sidebar-mini', 'sidebar-collapse'],
+    'layout' => ["layout-boxed",  "sidebar-mini"],
 
     /*
     |--------------------------------------------------------------------------
@@ -300,7 +300,7 @@ return [
     | This value is used to set the background image of login page.
     |
     */
-    'login_background_image' => '',
+    'login_background_image' => '/vendor/laravel-admin/AdminLTE/dist/img/books.png',
 
     /*
     |--------------------------------------------------------------------------

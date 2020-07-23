@@ -9,7 +9,7 @@ use Encore\Admin\Show;
 
 class TestAnswerController extends AdminController
 {
-    protected $title = 'TestAnswer';
+    protected $title = 'Test Answer\'s';
 
 
     protected function grid()

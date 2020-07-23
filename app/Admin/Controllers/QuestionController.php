@@ -11,7 +11,7 @@ use Encore\Admin\Show;
 class QuestionController extends AdminController
 {
 
-    protected $title = 'Question';
+    protected $title = 'Questions';
 
 
     protected function grid()

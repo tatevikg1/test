@@ -11,7 +11,7 @@ use Encore\Admin\Grid;
 
 class QuestionsOptionController extends AdminController
 {
-    protected $title = 'QuestionsOption';
+    protected $title = 'Answer Options';
 
 
     protected function grid()

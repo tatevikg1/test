@@ -21,10 +21,6 @@ class TopicController extends AdminController
     {
         $grid = new Grid(new Topic());
 
-        $grid->actions(function ($actions) {
-            $actions->disableEdit();
-        });
-
         $grid->column('id', __('Id'))->sortable()->expand(function ($model) {
 
             $questions = $model->questions->map(function ($question) {
@@ -45,7 +41,9 @@ class TopicController extends AdminController
     {
         $show = new Show(Topic::findOrFail($id));
 
-        $show->field('id', __('Id'))->sortable();
+        $show->field('add question')->link();
+
+        $show->field('id', __('Id'));
         $show->field('admin_id', __('Teacher'));
         $show->field('title', __('Title'));
         $show->field('created_at', __('Created at'))->date('Y-m-d | h:m');
@@ -59,7 +57,7 @@ class TopicController extends AdminController
         $form = new Form(new Topic());
 
         $form->text('title', __('Title'));
-        $form->number('admin_id', __('Teacher'))->default(Auth::id())->disable();
+        $form->text('admin_id', __('Teacher'))->default(Auth::id());
 
         return $form;
     }
