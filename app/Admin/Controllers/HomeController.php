@@ -15,7 +15,7 @@ class HomeController extends Controller
     {
         return $content
             ->title('Teachers')
-            ->description('Manage your tests and  questions.')
+            ->description('you can manage your tests and  questions here.')
             ->row(function (Row $row) {
 
                 //$row->column(12, function (Column $column) {

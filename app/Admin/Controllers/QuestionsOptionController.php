@@ -7,6 +7,8 @@ use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Show;
 use Encore\Admin\Grid;
+use Encore\Admin\Facades\Admin;
+
 
 
 class QuestionsOptionController extends AdminController
@@ -18,9 +20,9 @@ class QuestionsOptionController extends AdminController
     {
         $grid = new Grid(new QuestionsOption());
 
-        $grid->actions(function (Grid\Displayers\Actions $actions) {
-            $actions->disableView();
-        });
+        // $grid->actions(function (Grid\Displayers\Actions $actions) {
+        //     $actions->disableView();
+        // });
         $grid->disableFilter();
 
 
@@ -32,6 +34,10 @@ class QuestionsOptionController extends AdminController
         $grid->column('correct', __('Correct'));
         $grid->column('created_at', __('Created at'))->date('Y-m-d | h:m');
         $grid->column('updated_at', __('Updated at'))->date('Y-m-d | h:m');
+
+        Admin::navbar(function (\Encore\Admin\Widgets\Navbar $navbar) {
+            $navbar->left(new \App\Admin\Extensions\Nav\Links());
+        });
 
         return $grid;
     }

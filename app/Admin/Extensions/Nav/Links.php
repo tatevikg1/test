@@ -30,12 +30,12 @@ class Links
 
 <li>
     <a href="/admin/tests">
-      <i class="fa fa-tumblr">ests</i><span style="margin-left:3px">Topics</span>
+      <i class="fa fa-tumblr">ests</i>
     </a>
 </li>
 <li>
     <a href="/admin/test-answers">
-      <i class="fa fa-font">nswers</i><span style="margin-left:3px">Topics</span>
+      <i class="fa fa-font">nswers</i>
     </a>
 </li>
 

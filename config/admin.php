@@ -3,9 +3,6 @@
 return [
 
     /*
-    |--------------------------------------------------------------------------
-    | Laravel-admin name
-    |--------------------------------------------------------------------------
     |
     | This value is the name of laravel-admin, This setting is displayed on the
     | login page.
@@ -34,7 +31,7 @@ return [
     | '<img src="http://logo-url" alt="Admin logo">'.
     |
     */
-    'logo-mini' => '<b>LfT</b>',
+    'logo-mini' => '<b>LforT</b>',
 
     /*
     |--------------------------------------------------------------------------
@@ -340,6 +337,7 @@ return [
     | Whether enable default breadcrumb for every page content.
     */
     'enable_default_breadcrumb' => true,
+
 
     /*
     |--------------------------------------------------------------------------

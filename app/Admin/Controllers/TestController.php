@@ -8,6 +8,8 @@ use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Show;
 use Illuminate\Support\Facades\DB;
+use Encore\Admin\Facades\Admin;
+
 
 
 class TestController extends AdminController
@@ -33,6 +35,10 @@ class TestController extends AdminController
         $grid->column('score', __('Score'));
         $grid->column('created_at', __('Created at'))->date('Y-m-d | h:m');
         $grid->column('updated_at', __('Updated at'))->date('Y-m-d | h:m');
+
+        Admin::navbar(function (\Encore\Admin\Widgets\Navbar $navbar) {
+            $navbar->left(new \App\Admin\Extensions\Nav\Links());
+        });
 
         return $grid;
     }

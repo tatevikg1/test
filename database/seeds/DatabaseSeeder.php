@@ -11,6 +11,5 @@ class DatabaseSeeder extends Seeder
         factory(App\Question::class, 9)->create();
         factory(App\QuestionsOption::class, 20)->create();
 
-
     }
 }

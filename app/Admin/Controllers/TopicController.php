@@ -9,6 +9,9 @@ use Encore\Admin\Grid;
 use Encore\Admin\Show;
 Use Encore\Admin\Widgets\Table;
 use Illuminate\Support\Facades\Auth;
+use Encore\Admin\Facades\Admin;
+// use App\Admin\Extensions\AddQuestion;
+
 
 
 class TopicController extends AdminController
@@ -16,10 +19,15 @@ class TopicController extends AdminController
 
     protected $title = 'Topic';
 
-
     protected function grid()
     {
         $grid = new Grid(new Topic());
+
+        // $grid->actions(function ($actions) {
+        //
+        //     $actions->append(new AddQuestion($actions->getKey()));
+        // });
+
 
         $grid->column('id', __('Id'))->sortable()->expand(function ($model) {
 
@@ -33,15 +41,18 @@ class TopicController extends AdminController
         $grid->column('created_at', __('Created at'))->date('Y-m-d | h:m');
         $grid->column('updated_at', __('Updated at'))->date('Y-m-d | h:m');
 
+        Admin::navbar(function (\Encore\Admin\Widgets\Navbar $navbar) {
+            $navbar->left(new \App\Admin\Extensions\Nav\Links());
+        });
+
         return $grid;
     }
-
 
     protected function detail($id)
     {
         $show = new Show(Topic::findOrFail($id));
 
-        $show->field('add question')->link();
+        // $show->field('add question')->link();
 
         $show->field('id', __('Id'));
         $show->field('admin_id', __('Teacher'));

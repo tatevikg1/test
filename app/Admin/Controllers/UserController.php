@@ -5,7 +5,7 @@ namespace App\Admin\Controllers;
 use App\User;
 use Encore\Admin\Controllers\AdminController;
 Use Encore\Admin\Widgets\Table;
-
+use Encore\Admin\Facades\Admin;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Show;
@@ -23,10 +23,11 @@ class UserController extends AdminController
 
         $grid->column('name', __('Name'))->expand(function ($model) {
 
-            $tests = $model->tests->map(function ($question) {
+            $tests = $model->tests->map(function ($test) {
 
                 return $test->only(['id', 'topic_id', 'score', 'created_at']);
             });
+
             return new Table(['ID', 'Topic', 'Score', 'Created at'], $tests->toArray());
         });
 
@@ -35,6 +36,10 @@ class UserController extends AdminController
         $grid->column('remember_token', __('Remember token'))->hide();
         $grid->column('created_at', __('Created at'))->date('Y-m-d | h:m');
         $grid->column('updated_at', __('Updated at'))->date('Y-m-d | h:m');
+
+        Admin::navbar(function (\Encore\Admin\Widgets\Navbar $navbar) {
+            $navbar->left(new \App\Admin\Extensions\Nav\Links());
+        });
 
         return $grid;
     }

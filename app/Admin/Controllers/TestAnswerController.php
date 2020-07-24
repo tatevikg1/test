@@ -6,6 +6,8 @@ use App\TestAnswer;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Grid;
 use Encore\Admin\Show;
+use Encore\Admin\Facades\Admin;
+
 
 class TestAnswerController extends AdminController
 {
@@ -17,18 +19,21 @@ class TestAnswerController extends AdminController
         $grid = new Grid(new TestAnswer());
 
         $grid->actions(function (Grid\Displayers\Actions $actions) {
-            $actions->disableView();
-            $actions->disableEdit();
+            //$actions->disableView();
+            //$actions->disableEdit();
         });
         $grid->disableFilter();
 
         $grid->column('id', __('Id'));
         $grid->column('test_id', __('Test id'));
-        $grid->column('question', __('Question'));
-        $grid->column('questions_option', __('Answer'));
+        $grid->column('question.question', __('Question'));
+        $grid->column('questions_option_id', __('Answer id'));
         $grid->column('correct', __('Correct'));
         $grid->column('created_at', __('Created at'));
-        $grid->column('updated_at', __('Updated at'));
+
+        Admin::navbar(function (\Encore\Admin\Widgets\Navbar $navbar) {
+            $navbar->left(new \App\Admin\Extensions\Nav\Links());
+        });
 
         return $grid;
     }

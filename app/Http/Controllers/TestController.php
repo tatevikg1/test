@@ -25,7 +25,7 @@ class TestController extends Controller
 
     public function show(Topic $topic, $slug)
     {
-        //$quiz->load('questions.answers');
+        //$topic->load('questions.questions_options');
 
         $topic->load(['questions.questions_options' => function($query)
         {

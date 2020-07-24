@@ -7,6 +7,8 @@ use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Show;
+use Encore\Admin\Facades\Admin;
+
 
 class QuestionController extends AdminController
 {
@@ -18,9 +20,6 @@ class QuestionController extends AdminController
     {
         $grid = new Grid(new Question());
 
-        $grid->actions(function (Grid\Displayers\Actions $actions) {
-            $actions->disableView();
-        });
         $grid->disableFilter();
 
         $grid->column('id', __('Id'))->sortable();
@@ -29,6 +28,12 @@ class QuestionController extends AdminController
         $grid->column('point', __('Point'));
         $grid->column('created_at', __('Created at'))->date('Y-m-d | h:m');
         $grid->column('updated_at', __('Updated at'))->date('Y-m-d | h:m');
+
+
+        Admin::navbar(function (\Encore\Admin\Widgets\Navbar $navbar) {
+            $navbar->left(new \App\Admin\Extensions\Nav\Links());
+        });
+
 
         return $grid;
     }
@@ -56,7 +61,6 @@ class QuestionController extends AdminController
         $form->number('topic_id', __('Topic id'));
         $form->textarea('question', __('Question'));
         $form->number('point', __('Point'));
-
 
         return $form;
     }
