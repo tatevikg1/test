@@ -20,7 +20,9 @@ class ResultController extends Controller
     {
         $user = Auth::user();
 
-        return view('result.index', compact('user'));
+        $topics = Topic::all();
+
+        return view('result.index', compact('user', 'topics'));
     }
 
     public function show(Test $test)

@@ -10,7 +10,7 @@ class HomeController extends Controller
 
     public function index()
     {
-        $topics = Topic::all();
+        $topics = Topic::paginate(7);
 
         return view('test.index', compact('topics'));
     }

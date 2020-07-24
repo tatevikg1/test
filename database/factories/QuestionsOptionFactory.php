@@ -9,7 +9,7 @@ use Illuminate\Support\Str;
 
 $factory->define(QuestionsOption::class, function (Faker $faker) {
     return [
-        'question_id' => $faker->numberBetween($min = 34, $max = 35),
+        'question_id' => $faker->numberBetween($min = 1, $max = 50),
         'option' => $faker->sentence,
         'correct'=>$faker->numberBetween($min = 0, $max = 1),
     ];
