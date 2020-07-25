@@ -46,7 +46,7 @@ class ResultController extends Controller
 
         $topic = $test->topic;
 
-        $questions = Question::select('id')->where('topic_id', $topic->id)->pluck('id')->toArray();
+        //$questions = Question::select('id')->where('topic_id', $topic->id)->pluck('id')->toArray();
 
 
         $score = ($users_score * 100)/$total_points;
