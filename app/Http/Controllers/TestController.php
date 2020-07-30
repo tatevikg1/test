@@ -8,6 +8,7 @@ use App\Topic;
 use App\Test;
 use App\User;
 use App\Question;
+use App\Http\Requests\TestRequest;
 
 class TestController extends Controller
 {
@@ -35,14 +36,15 @@ class TestController extends Controller
         return view('test.show', compact('topic'));
     }
 
-    public function store(Topic $topic, Test $test, User $user)
+    public function store(Topic $topic, TestRequest $request)
     {
-        $data = request()->validate([
-            'responses.*.questions_option_id'=>'required',
-            'responses.*.question_id'=>'required',
-            //'responses.*.point'=>'required',
-        ]);
-
+        // $data = request()->validate([
+        //     'responses.*.questions_option_id'=>'required',
+        //     'responses.*.question_id'=>'required',
+        //     //'responses.*.point'=>'required',
+        // ]);
+        //
+        $data = $request->all();
 
         $test = new Test;
         $test->user_id = Auth::user()->id;
