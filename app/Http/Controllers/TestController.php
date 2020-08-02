@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+// use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Topic;
 use App\Test;
-use App\User;
-use App\Question;
+// use App\Question;
 use App\Http\Requests\TestRequest;
 
 class TestController extends Controller

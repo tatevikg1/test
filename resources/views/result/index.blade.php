@@ -5,7 +5,8 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card-header">
-                <small>Dear {{ $user->name }} so far your have completesmall {{ $user->tests->count() }} tests (limit is 10).</p>
+                <small>{{__('trans.dear')}} {{ $user->name }} {{__('trans.so_far_you_have_completed')}} {{ $user->tests->count() }} tests
+                       ({{__('trans.you_can_see_only')}} 10).</p>
             </div>
 
             <script>
@@ -18,9 +19,9 @@
                 <div class="table-responsive">
                     <table class="table-striped table">
                         <tr>
-                            <th>Topic title</th>
-                            <th>Date</th>
-                            <th>Score</th>
+                            <th>{{__('trans.topic_title')}}</th>
+                            <th>{{__('trans.date')}}</th>
+                            <th>{{__('trans.score')}}</th>
                         </tr>
 
                         <?php $count = 0; ?>

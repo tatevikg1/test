@@ -25,7 +25,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="btn btn-dark" href="{{ url('/') }}">All Tests</a>
+                <a class="btn btn-dark" href="{{ url('/') }}">{{__('trans.all_tests')}}</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -33,7 +33,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                        <li><a class="btn btn-dark ml-3" href="{{ url('/results') }}">My Test results</a></li>
+                        <li><a class="btn btn-dark ml-3" href="{{ url('/results') }}">{{__('trans.my_test_results')}}</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -41,11 +41,11 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="btn btn-dark" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="btn btn-dark" href="{{ route('login') }}">{{ __('trans.login') }}</a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="btn btn-dark ml-3" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="btn btn-dark ml-3" href="{{ route('register') }}">{{ __('trans.register') }}</a>
                                 </li>
                             @endif
                         @else
@@ -58,7 +58,7 @@
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                        {{ __('trans.logout') }}
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

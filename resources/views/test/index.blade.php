@@ -6,7 +6,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                    <h4 style="text-align:center">All tests</h4>
+                    <h4 style="text-align:center">{{__('trans.all_tests')}}</h4>
                 </div>
 
                 <div class="table-responsive">
@@ -19,7 +19,7 @@
                                 <td style="padding:0px; margin:0px;">
                                     <a href="/tests/{{ $topic->id }}-{{ Str::slug($topic->title) }}"
                                     class="btn btn-dark"
-                                    style="float:right"> Pass test</a>
+                                    style="float:right"> {{__('trans.pass_test')}}</a>
                                 </td>
                             </tr>
                         @endforeach

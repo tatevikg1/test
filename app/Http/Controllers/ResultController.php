@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+// use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Test;
-use App\Question;
+// use App\Question;
 use App\Topic;
 
 class ResultController extends Controller
@@ -50,6 +50,7 @@ class ResultController extends Controller
 
 
         $score = ($users_score * 100)/$total_points;
+        $score = number_format((float)$score, 2);
 
         $user = $test->user;
 

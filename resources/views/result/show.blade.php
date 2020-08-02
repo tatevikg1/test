@@ -9,7 +9,7 @@
                     <div class="card-header">{{ $test->topic->title }}</div>
                 </div>
                 <div class="container">
-                    <p>Dear {{ $user->name }} your score is {{ $test->score }}%.</p>
+                    <p>{{__('trans.dear')}} {{ $user->name }} {{__('trans.your_score_is')}} {{ $test->score }}%.</p>
                 </div>
 
                 <div class="container">
@@ -25,9 +25,9 @@
                         </div>
 
                         @if( $testAnswer->correct == 0)
-                            <div class="card-header text-danger">Wrong Answer ({{ $testAnswer->question->point }} point(s))</div>
+                            <div class="card-header text-danger">{{__('trans.wrong_answer')}} ({{ $testAnswer->question->point }} point(s))</div>
                         @else
-                            <div class="card-header text-success">Correct Answer ({{ $testAnswer->question->point }} point(s))</div>
+                            <div class="card-header text-success">{{__('trans.correct_answer')}} ({{ $testAnswer->question->point }} point(s))</div>
                         @endif
 
                     </div>
@@ -39,6 +39,7 @@
         </div>
     @else
         <div class="container">
+            {{__('trans.invalid_test_number')}}
             Invalid test number.
         </div>
     @endif

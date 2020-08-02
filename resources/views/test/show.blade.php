@@ -15,7 +15,7 @@
                         <div class="card-header">
                             <strong class="mr-4">{{ $key+1 }}</strong>
                             {{ $question->question  }}
-                            <small style="position: absolute; right:10px;">{{ $question->point }} point(s)</small>
+                            <small style="position: absolute; right:10px;">{{ $question->point }} {{__('trans.point(s)')}}</small>
                         </div>
 
 
@@ -43,7 +43,7 @@
                 @endforeach
 
 
-                <input type="submit" class="btn btn-dark" value='Submit Answers'>
+                <input type="submit" class="btn btn-dark" value={{__('trans.submit_answer')}}>
             </form>
 
         </div>
