@@ -4,10 +4,17 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ $topic->title }}</div>
+            <div class="card ">
+                <div class="card-header d-flex">
+                    <div class="">{{ $topic->title }}</div>
+
+                    <div style="z-index:1; ">
+                        <div style="position:fixed; left:50%; background-color:#16b00b77" class="timer btn"></div>
+                     </div>
+                </div>
+
             </div>
-            <form class="" action="/tests/{{ $topic->id }}-{{ Str::slug($topic->title) }}" method="post">
+            <form class="" action="/tests/{{ $topic->id }}-{{ Str::slug($topic->title) }}" method="post" name="theForm">
                 @csrf
 
                 @foreach($topic->questions as $key=>$question)
@@ -45,6 +52,53 @@
 
                 <input type="submit" class="btn btn-dark" value={{__('trans.submit_answer')}}>
             </form>
+
+
+
+            <script type="text/javascript">
+
+                document.addEventListener('DOMContentLoaded', () =>{
+
+                    var i = 1 * 30 + 1;
+
+                    var timer = document.querySelector(".timer");
+
+                    function countDown(){
+
+                        if (i === 0){
+
+                            alert('Your time is up!');
+
+                            document.theForm.submit();
+                            // "theForm" is the name atribute of the form
+                        }
+
+                        else{
+                            
+                            i = i - 1;
+
+                            var minutes = Math.floor (i / 60);
+
+                            if (minutes == 0){
+
+                                document.querySelector(".timer").style.backgroundColor = "#f2050977";
+                            }
+                            var min = String(minutes).padStart(2, '0')
+
+                            var seconds = i % 60;
+                            var sec = String(seconds).padStart(2, '0')
+
+
+                            document.querySelector(".timer").innerHTML = min + ":" + sec;
+                        }
+                    }
+
+                    var interval = setInterval( countDown, 1000);
+
+                });
+
+            </script>
+
 
         </div>
     </div>
