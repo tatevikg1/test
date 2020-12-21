@@ -8,9 +8,9 @@
                 <div class="card-header d-flex">
                     <div class="">{{ $topic->title }}</div>
 
-                    <div style="z-index:1; ">
+                    <!-- <div style="z-index:1; ">
                         <div style="position:fixed; left:50%; background-color:#16b00b77" class="timer btn"></div>
-                     </div>
+                     </div> -->
                 </div>
 
             </div>
@@ -55,7 +55,7 @@
 
 
 
-            <script type="text/javascript">
+            <!-- <script type="text/javascript">
 
                 document.addEventListener('DOMContentLoaded', () =>{
 
@@ -97,7 +97,7 @@
 
                 });
 
-            </script>
+            </script> -->
 
 
         </div>
