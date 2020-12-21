@@ -32,9 +32,11 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
+                    @auth
                     <ul class="navbar-nav mr-auto">
                         <li><a class="btn btn-dark ml-3" href="{{ url('/results') }}">{{__('trans.my_test_results')}}</a></li>
                     </ul>
+                    @endauth
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
