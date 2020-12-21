@@ -20,12 +20,12 @@ return [
 
     'all_tests' => 'All tests',
     'pass_test' => 'Pass test',
-    'invalid_test_number' => 'Invalid test number!'
+    'invalid_test_number' => 'Invalid test number!',
     'my_test_results' => 'My test results',
 
     'dear' => 'Dear',
     'so_far_you_have_completed' => 'so far you have completed',
-    'you_can_see_only' => 'you can see only',
+    'you_can_see_only' => 'the limit is ',
 
     'topic_title' => 'Topic title',
     'date' => 'Date',
