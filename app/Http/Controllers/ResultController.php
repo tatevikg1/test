@@ -55,7 +55,7 @@ class ResultController extends Controller
         $user = $test->user;
 
         $test->score = $score;
-        $test->save();
+        // $test->save();
 
 
         return view('result.show', compact('test', 'user'));

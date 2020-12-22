@@ -32,7 +32,7 @@ class UserController extends AdminController
         });
 
         $grid->column('email', __('Email'));
-        $grid->column('email_verified_at', __('Email verified at'));
+        // $grid->column('email_verified_at', __('Email verified at'));
         $grid->column('remember_token', __('Remember token'))->hide();
         $grid->column('created_at', __('Created at'))->date('Y-m-d | h:m');
         $grid->column('updated_at', __('Updated at'))->date('Y-m-d | h:m');
