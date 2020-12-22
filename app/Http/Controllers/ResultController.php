@@ -48,16 +48,12 @@ class ResultController extends Controller
 
         //$questions = Question::select('id')->where('topic_id', $topic->id)->pluck('id')->toArray();
 
-
         $score = ($users_score * 100)/$total_points;
         $score = number_format((float)$score, 2);
 
         $user = $test->user;
 
-        // $test->score = $score;
-        $test->update(['score' => $score]);
-        // dd($test);
-
+        $test->update(['score' => (int)$score]);
 
         return view('result.show', compact('test', 'user'));
     }
