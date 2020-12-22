@@ -26,7 +26,7 @@
 
                         <?php $count = 0; ?>
                         @foreach ($user->tests->reverse() as $key=>$test)
-                            <?php if($count == 10) break; ?>
+                            @if($count < 10)
 
                             <tr data-toggle="tooltip" title="click on topic title to see more detales">
                                 <td><a style="color:black" href="/results/{{ $test->id }}">{{ ucfirst($topics[$test->topic_id]->title) }}</a></td>
@@ -35,6 +35,7 @@
                             </tr>
 
                             <?php $count++; ?>
+                            @endif
                         @endforeach
 
                     </table>
