@@ -19,8 +19,9 @@ window.Vue = require('vue');
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
-
+Vue.component('topics-table', require('./components/TopicsTable.vue').default);
+Vue.component('questions', require('./components/Questions.vue').default);
+Vue.component('options', require('./components/Options.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -30,3 +31,34 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 const app = new Vue({
     el: '#app',
 });
+
+if(window.location.pathname == '/admin/topic')
+{
+
+    document.getElementById('add').addEventListener('click', function(){
+        document.querySelector('.bg-modal').style.display = 'flex';
+    });
+
+    document.querySelector('.close').addEventListener('click', function(){
+        document.querySelector('.bg-modal').style.display = 'none';
+        app.$refs.topics.getTopics();
+    });
+
+    document.querySelector('#addTopic').addEventListener('click', function(){
+
+        var url = '/admin/topic';
+        var formData = $(addTopicForm).serializeArray();
+        $.post(url, formData).done(function (data) {
+            document.querySelector('#topic').value = '';
+            document.getElementById('addTopicError').innerHTML = '';
+            // $("#addCategoryError").html("");
+        })
+        .fail(function(response){
+            $.each(response.responseJSON.errors, function(field_name, error){
+                document.getElementById('addTopicError').innerHTML = error;
+            })
+        });
+
+        document.querySelector('#topic').focus();
+    });
+};
