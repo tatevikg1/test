@@ -2041,6 +2041,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2106,7 +2112,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   components: {
     Question: function Question() {
-      return __webpack_require__.e(/*! import() */ 1).then(__webpack_require__.bind(null, /*! ./Question.vue */ "./resources/js/components/Question.vue"));
+      return __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.bind(null, /*! ./Question.vue */ "./resources/js/components/Question.vue"));
     }
   }
 });
@@ -2160,7 +2166,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   components: {
     Topic: function Topic() {
-      return __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.bind(null, /*! ./Topic.vue */ "./resources/js/components/Topic.vue"));
+      return __webpack_require__.e(/*! import() */ 1).then(__webpack_require__.bind(null, /*! ./Topic.vue */ "./resources/js/components/Topic.vue"));
     }
   }
 });
@@ -6609,7 +6615,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".admin-question {\n  border: 1px solid black;\n  margin: 20px;\n  padding: 10px 20px;\n}\n.admin-question .question {\n  font-weight: bold;\n  font-size: 20px;\n  position: relative;\n}\n.admin-question .correct {\n  color: green;\n  font-weight: bold;\n}\n.admin-question .point {\n  position: relative;\n  top: -8px;\n  right: -10px;\n  padding: 1px 6px;\n  border-radius: 60%;\n  background-color: green;\n  color: white;\n  font-size: 11px;\n}", ""]);
+exports.push([module.i, ".admin-question {\n  border: 1px solid black;\n  margin: 20px;\n  padding: 10px 20px;\n}\n.admin-question .question {\n  font-weight: bold;\n  font-size: 20px;\n  position: relative;\n}\n.admin-question .correct {\n  color: green;\n  font-weight: bold;\n}\n.admin-question .point {\n  position: relative;\n  top: -8px;\n  right: -10px;\n  padding: 1px 6px;\n  border-radius: 60%;\n  background-color: green;\n  color: white;\n  font-size: 11px;\n}\ninput {\n  margin: 5px;\n}", ""]);
 
 // exports
 
@@ -38458,64 +38464,67 @@ var render = function() {
     { staticClass: "form-group" },
     _vm._l(_vm.questionOptions, function(input, index) {
       return _c("div", { key: "" + index }, [
-        _c("input", {
-          attrs: { type: "radio", name: "correct" },
-          domProps: { value: index }
-        }),
-        _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: input.questionOption,
-              expression: "input.questionOption"
-            }
-          ],
-          attrs: {
-            name: "options[" + index + "]",
-            type: "text",
-            placeholder: "Enter question option"
-          },
-          domProps: { value: input.questionOption },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
+        _c("div", { staticClass: "container row" }, [
+          _c("input", {
+            attrs: { type: "radio", name: "correct" },
+            domProps: { value: index }
+          }),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: input.questionOption,
+                expression: "input.questionOption"
               }
-              _vm.$set(input, "questionOption", $event.target.value)
-            }
-          }
-        }),
-        _vm._v(" "),
-        _c(
-          "svg",
-          {
-            staticClass: "ml-2 cursor-pointer",
+            ],
+            staticStyle: { width: "80%" },
             attrs: {
-              xmlns: "http://www.w3.org/2000/svg",
-              viewBox: "0 0 24 24",
-              width: "24",
-              height: "24"
+              name: "options[" + index + "]",
+              type: "text",
+              placeholder: "Enter question option"
             },
+            domProps: { value: input.questionOption },
             on: {
-              click: function($event) {
-                return _vm.addField(input, _vm.questionOptions)
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(input, "questionOption", $event.target.value)
               }
             }
-          },
-          [
-            _c("path", { attrs: { fill: "none", d: "M0 0h24v24H0z" } }),
-            _vm._v(" "),
-            _c("path", {
+          }),
+          _vm._v(" "),
+          _c(
+            "svg",
+            {
+              staticClass: "ml-2 cursor-pointer",
               attrs: {
-                fill: "green",
-                d:
-                  "M11 11V7h2v4h4v2h-4v4h-2v-4H7v-2h4zm1 11C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16z"
+                xmlns: "http://www.w3.org/2000/svg",
+                viewBox: "0 0 24 24",
+                width: "24",
+                height: "24"
+              },
+              on: {
+                click: function($event) {
+                  return _vm.addField(input, _vm.questionOptions)
+                }
               }
-            })
-          ]
-        )
+            },
+            [
+              _c("path", { attrs: { fill: "none", d: "M0 0h24v24H0z" } }),
+              _vm._v(" "),
+              _c("path", {
+                attrs: {
+                  fill: "green",
+                  d:
+                    "M11 11V7h2v4h4v2h-4v4h-2v-4H7v-2h4zm1 11C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16z"
+                }
+              })
+            ]
+          )
+        ])
       ])
     }),
     0
