@@ -19,7 +19,41 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-
+    <style>
+        .bg-modal{
+            width:100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            position: absolute;
+            top: 0;
+            justify-content: center;
+            align-items: center;
+            border-radius: 4px;
+            display: none;
+        }
+        .bg-modal.modal-content{
+            width: 400px;
+            height: 250px;
+            background-color: white;
+            padding: 20px;
+        }
+        .bg-modal.modal-content input{
+            width: 100%;
+            margin-top: 20%;
+        }
+        .bg-modal.modal-content.close{
+            position: absolute;
+            top: 0;
+            right: 12px;
+            font-size: 40px;
+            transform: rotate(45deg);
+            color: black;
+            cursor: pointer;
+        }
+        #add{
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
     <div id="app">
