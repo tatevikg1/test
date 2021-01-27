@@ -31,17 +31,17 @@
             border-radius: 4px;
             display: none;
         }
-        .bg-modal.modal-content{
+        .modal-content{
             width: 400px;
             height: 250px;
             background-color: white;
             padding: 20px;
         }
-        .bg-modal.modal-content input{
+        .bg-modal .modal-content input{
             width: 100%;
             margin-top: 20%;
         }
-        .bg-modal.modal-content.close{
+        .close{
             position: absolute;
             top: 0;
             right: 12px;
