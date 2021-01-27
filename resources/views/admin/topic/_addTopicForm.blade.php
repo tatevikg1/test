@@ -11,7 +11,7 @@
                 <span id="addTopicError" class="error_messages" style="color:red"></span>
             </div>
 
-            <div  class="button button-black d-inline-flex p-2 mt-3" id="addTopic">Add topic</div>
+            <div  class="btn btn-secondary d-inline-flex p-2 mt-3" id="addTopic">Add topic</div>
             
         </form>
 

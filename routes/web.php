@@ -11,7 +11,7 @@ Route::get ('/tests',               'TestController@index');
 Route::get ('/tests/{topic}-{slug}', 'TestController@show')->middleware('second.time');
 Route::post('/tests/{topic}-{slug}', 'TestController@store');
 
-Route::get('/results/{test}',   'ResultController@show')->name('result.show');
+Route::get('/results/{test}',   'ResultController@show') ->name('result.show');
 Route::get('/results',          'ResultController@index')->name('result.index');
 
 Route::get('/secondTime', function () {
@@ -24,10 +24,10 @@ Route::prefix('admin')->group(function () {
     Route::post     ('/topic',          'Admin\TopicController@store')  ->name('admin.topic.store');
     Route::delete   ('/topic/{topic}',  'Admin\TopicController@destroy')->name('admin.topic.destroy');
 
-    Route::get      ('/{topic}/question',       'Admin\QuestionController@index')  ->name('admin.question.index');
     Route::get      ('/question/create',        'Admin\QuestionController@create') ->name('admin.question.create');
+    Route::get      ('/question/{topic}',       'Admin\QuestionController@index')  ->name('admin.question.index');
     Route::post     ('/question/{topic}',       'Admin\QuestionController@store')  ->name('admin.question.store');
     Route::delete   ('/question/{question}',    'Admin\QuestionController@destroy')->name('admin.question.destroy');
-    Route::get      ('/question/{question}/edit','Admin\QuestionController@edit') ->name('admin.question.edit');
+    Route::get      ('/question/{question}/edit','Admin\QuestionController@edit')  ->name('admin.question.edit');
     Route::patch    ('/question/{question}',    'Admin\QuestionController@update') ->name('admin.question.update');
 });

@@ -27,7 +27,7 @@
             return {
                 csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
                 visible: true,
-                url: `/admin/${ this.topic.id }/question`,
+                url: `/admin/question/${ this.topic.id }`,
             }
         },
 

@@ -12,6 +12,11 @@ use App\Http\Requests\QuestionRequest;
 
 class QuestionController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('admin');
+    }
+
     public function index(Topic $topic)
     {
         return view('admin.question.index', compact('topic'));
@@ -68,7 +73,6 @@ class QuestionController extends Controller
     public function create(Request $request)
     {
         $topic = Topic::where('id', $request->topic)->first();
-
         return view('admin.question.create', compact('topic'));
     }
 

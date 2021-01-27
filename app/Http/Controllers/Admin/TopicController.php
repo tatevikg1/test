@@ -9,6 +9,11 @@ use Illuminate\Http\Request;
 
 class TopicController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('admin');
+    }
+
     public function index()
     {
         $topics = Topic::all();

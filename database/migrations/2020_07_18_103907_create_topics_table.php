@@ -12,7 +12,7 @@ class CreateTopicsTable extends Migration
         Schema::create('topics', function (Blueprint $table) {
             $table->id();
             $table->string('title')->nullable();
-            $table->foreignId('admin_id')->nullable();
+            $table->foreignId('admin_id')->default(1);
             $table->timestamps();
         });
     }

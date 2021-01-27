@@ -9,7 +9,7 @@
 
                 <div class="card-header justify-content-between d-flex ">
                     <h4>{{ __('Topics') }}</h4>
-                    <div class="btn btn-dark" id="add" style="padding: 12px 40px;">Add</div>
+                    <div class="btn btn-secondary" id="add">Add</div>
                 </div>
 
                 <topics-table  ref="topics"></topics-table>

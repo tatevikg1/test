@@ -36,7 +36,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
       visible: true,
-      url: "/admin/".concat(this.topic.id, "/question")
+      url: "/admin/question/".concat(this.topic.id)
     };
   },
   methods: {

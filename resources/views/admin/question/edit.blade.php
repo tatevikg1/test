@@ -10,8 +10,8 @@
                     <div>Test title - {{ $question->topic_id }}</div>
                 </div>
             </div>
+        
         <div class="card-body">
-
             <form  method="POST" action="{{ route('admin.question.update', ['question' => $question->id]) }}">
                 @csrf
                 @method('PATCH')
@@ -22,7 +22,6 @@
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
-
                 <div class="list-group">
                     <input type="text" name="point" value="{{ $question->point }}">
                     @error('point')
@@ -30,12 +29,10 @@
                     @enderror
                 </div>
                 
-
                 <options></options>        
                 
                 <input type="submit" placeholder="Create question" class="btn btn-secondary" value="Update">
             </form>
-
         </div>
     </div>
 </div>

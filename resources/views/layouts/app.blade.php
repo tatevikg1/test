@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Test</title>
+    <title>@yield('title')</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -35,8 +35,17 @@
                     @auth
                     <ul class="navbar-nav mr-auto">
                         <li><a class="btn btn-dark ml-3" href="{{ url('/results') }}">{{__('trans.my_test_results')}}</a></li>
+                        <li>
+                            @if (auth()->check())
+                                @if (auth()->user()->id == 1)
+                                    <a class="btn btn-secondary ml-3" href="{{ route('admin.topic.index') }}">Administration</a> 
+                                @endif
+                            @endif
+                        </li>
                     </ul>
                     @endauth
+
+                    
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
