@@ -1,12 +1,13 @@
 @extends('layouts.app')
+@section('title', 'Quiz Results')
+
 
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card-header">
-                <small>{{__('trans.dear')}} {{ $user->name }} {{__('trans.so_far_you_have_completed')}} {{ $user->tests->count() }} tests
-                       ({{__('trans.you_can_see_only')}} 10).</p>
+                <div>{{__('trans.dear')}} {{ $user->name }} {{__('trans.so_far_you_have_completed')}} {{ $user->tests->count() }} tests.</div>
             </div>
 
             <script>
@@ -29,7 +30,7 @@
                             @if($count < 10)
 
                             <tr data-toggle="tooltip" title="click on topic title to see more detales">
-                                <td><a style="color:black" href="/results/{{ $test->id }}">{{ ucfirst($topics[$test->topic_id]->title) }}</a></td>
+                                <td><a style="color:black" href="{{ route('result.show', $test->id) }}">{{ ucfirst($topics[$key]->title) }}</a></td>
                                 <td>{{ $test->created_at }}</td>
                                 <td>{{ $test->score }}%</td>
                             </tr>
@@ -39,10 +40,6 @@
                         @endforeach
 
                     </table>
-                </div>
-            @else
-                <div class="">
-                    You haven't pasted any test.
                 </div>
             @endif
         </div>

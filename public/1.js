@@ -26,6 +26,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     topic: {
@@ -66,7 +70,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.table-categories td {\n    text-align: left; \n    vertical-align: middle;\n}\n\n", ""]);
+exports.push([module.i, "\n.admin-link{\n    color: black;\n}\n\n", ""]);
 
 // exports
 
@@ -118,54 +122,48 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "tr",
-    {
-      directives: [
-        {
-          name: "show",
-          rawName: "v-show",
-          value: _vm.visible,
-          expression: "visible"
-        }
-      ],
-      staticClass: "table-body"
-    },
-    [
-      _c("a", { attrs: { href: _vm.url } }, [
-        _c("td", [_vm._v(_vm._s(_vm.topic.title.toUpperCase()))])
-      ]),
-      _vm._v(" "),
-      _c("td", [_vm._v(_vm._s(_vm.topic.created_at.slice(0, 10)))]),
-      _vm._v(" "),
-      _c("td", [
-        _c("form", { attrs: { method: "post" } }, [
-          _c("input", {
-            attrs: { type: "hidden", name: "_token" },
-            domProps: { value: _vm.csrf }
-          }),
+  return _vm.visible
+    ? _c("div", { staticClass: "admin-question" }, [
+        _c("div", { staticClass: "row" }, [
+          _c("a", { staticClass: "col-6", attrs: { href: _vm.url } }, [
+            _c("div", { staticClass: "admin-link" }, [
+              _vm._v(_vm._s(_vm.topic.title.toUpperCase()))
+            ])
+          ]),
           _vm._v(" "),
-          _c("input", {
-            attrs: { type: "hidden", name: "category" },
-            domProps: { value: _vm.topic.id }
-          }),
+          _c("a", { staticClass: "col-5", attrs: { href: _vm.url } }, [
+            _c("div", { staticClass: "admin-link" }, [
+              _vm._v(_vm._s(_vm.topic.created_at.slice(0, 10)))
+            ])
+          ]),
           _vm._v(" "),
-          _c(
-            "button",
-            {
-              staticClass: "btn btn-secondary",
-              on: {
-                click: function($event) {
-                  return _vm.deleteTopic(_vm.topic.id)
+          _c("form", { staticClass: "col-1", attrs: { method: "post" } }, [
+            _c("input", {
+              attrs: { type: "hidden", name: "_token" },
+              domProps: { value: _vm.csrf }
+            }),
+            _vm._v(" "),
+            _c("input", {
+              attrs: { type: "hidden", name: "category" },
+              domProps: { value: _vm.topic.id }
+            }),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-secondary",
+                on: {
+                  click: function($event) {
+                    return _vm.deleteTopic(_vm.topic.id)
+                  }
                 }
-              }
-            },
-            [_vm._v("Delete")]
-          )
+              },
+              [_vm._v("Delete")]
+            )
+          ])
         ])
       ])
-    ]
-  )
+    : _vm._e()
 }
 var staticRenderFns = []
 render._withStripped = true

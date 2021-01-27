@@ -60,7 +60,7 @@
 
 <style lang="scss">
 .admin-question{
-    border: 1px solid black;
+    border: 1px solid #80878d;
     margin:20px;
     padding:10px 20px;
 

@@ -1,18 +1,22 @@
 <template>
-    <tr class="table-body" v-show="visible">
-        <a :href="url">
-            <td>{{ topic.title.toUpperCase() }}</td>
-        </a>
-        <td>{{ topic.created_at.slice(0, 10) }}</td>
-        <td>
-            <form method="post">
+
+    <div class="admin-question" v-if="visible">
+        <div class="row">
+            <a :href="url"  class="col-6">
+                <div class="admin-link">{{ topic.title.toUpperCase() }}</div>                        
+            </a>
+            <a :href="url" class="col-5">
+                <div class="admin-link">{{ topic.created_at.slice(0, 10) }}</div>
+            </a>
+
+            <form method="post" class="col-1">
                 <input type="hidden" name="_token" :value="csrf">
                 <input type="hidden" name="category" :value="topic.id">
-
-                <button @click="deleteTopic(topic.id)" class="btn btn-secondary">Delete</button>
+                <button @click="deleteTopic(topic.id)"  class="btn btn-secondary">Delete</button>
             </form>
-        </td> 
-    </tr>
+        </div>
+    </div>
+  
 </template>
 
 <script>
@@ -48,9 +52,8 @@
 </script>
 
 <style>
-.table-categories td {
-    text-align: left; 
-    vertical-align: middle;
+.admin-link{
+    color: black;
 }
 
 </style>

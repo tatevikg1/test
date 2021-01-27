@@ -2,21 +2,18 @@
 
 use Illuminate\Support\Facades\Route;
 
-
+Auth::routes();
 Route::get('/', 'HomeController@index')->name('home');
 
-Auth::routes();
+Route::get ('/tests',                'TestController@index')->name('test.index');
+Route::get ('/tests/{topic}-{slug}', 'TestController@show') ->name('test.show');
+Route::post('/tests/{topic}-{slug}', 'TestController@store')->name('test.store');
 
-Route::get ('/tests',               'TestController@index');
-Route::get ('/tests/{topic}-{slug}', 'TestController@show')->middleware('second.time');
-Route::post('/tests/{topic}-{slug}', 'TestController@store');
+Route::get('/results/{test}',        'ResultController@show') ->name('result.show');
+Route::get('/results',               'ResultController@index')->name('result.index');
 
-Route::get('/results/{test}',   'ResultController@show') ->name('result.show');
-Route::get('/results',          'ResultController@index')->name('result.index');
-
-Route::get('/secondTime', function () {
-    return view('messages.secondTime');
-});
+// Route::get('/secondTime', function () { return view('messages.secondTime'); });
+// Route::get ('/tests/{topic}-{slug}', 'TestController@show')->middleware('second.time');
 
 
 Route::prefix('admin')->group(function () {

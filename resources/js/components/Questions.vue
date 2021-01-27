@@ -38,6 +38,3 @@
         components:{ Question: () => import('./Question.vue') }
     }
 </script>
-
-<style lang="scss">
-</style>

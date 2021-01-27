@@ -77,7 +77,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".admin-question {\n  border: 1px solid black;\n  margin: 20px;\n  padding: 10px 20px;\n}\n.admin-question .question {\n  font-weight: bold;\n  font-size: 20px;\n  position: relative;\n}\n.admin-question .correct {\n  color: green;\n  font-weight: bold;\n}\n.admin-question .point {\n  position: relative;\n  top: -8px;\n  right: -10px;\n  padding: 1px 6px;\n  border-radius: 60%;\n  background-color: green;\n  color: white;\n  font-size: 11px;\n}", ""]);
+exports.push([module.i, ".admin-question {\n  border: 1px solid #80878d;\n  margin: 20px;\n  padding: 10px 20px;\n}\n.admin-question .question {\n  font-weight: bold;\n  font-size: 20px;\n  position: relative;\n}\n.admin-question .correct {\n  color: green;\n  font-weight: bold;\n}\n.admin-question .point {\n  position: relative;\n  top: -8px;\n  right: -10px;\n  padding: 1px 6px;\n  border-radius: 60%;\n  background-color: green;\n  color: white;\n  font-size: 11px;\n}", ""]);
 
 // exports
 
