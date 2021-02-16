@@ -4,7 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-
+/**
+ * @var int $id
+ * @var int $user_id 
+ * @var int $topic_id 
+ * @var int $score 
+ */ 
 class Test extends Model
 {
     protected $guarded = [];

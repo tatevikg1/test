@@ -2,11 +2,17 @@
 
 namespace App;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
+// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-
+/**
+ * @var int $id
+ * @var string $name 
+ * @var string $email 
+ * @var string $password 
+ * @var bool $admin 
+*/
 class User extends Authenticatable
 {
     use  Notifiable;

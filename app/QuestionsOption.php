@@ -4,6 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * @var int $id
+ * @var int $question_id 
+ * @var string $option 
+ * @var bool $correct 
+*/
 class QuestionsOption extends Model
 {
     protected $guarded = [];

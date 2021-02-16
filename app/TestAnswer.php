@@ -4,7 +4,13 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-
+/**
+ * @var int $id
+ * @var int $test_id 
+ * @var int $question_id 
+ * @var int $correct 
+ * @var int $question_option_id 
+*/
 class TestAnswer extends Model
 {
 

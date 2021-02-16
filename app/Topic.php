@@ -4,7 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-
+/**
+* @var int $id
+* @var string $title 
+* @var int $admin_id 
+*/
 class Topic extends Model
 {
 

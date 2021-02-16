@@ -10934,7 +10934,6 @@ a.text-dark:focus {
   background-color: rgba(0, 0, 0, 0.7);
   position: absolute;
   top: 0;
-  display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 4px;
@@ -10965,5 +10964,11 @@ a.text-dark:focus {
 
 #add {
   cursor: pointer;
+}
+
+.topic {
+  background-color: #f7f7f7;
+  border: 1px solid grey;
+  border-radius: 10px;
 }
 
