@@ -7,7 +7,7 @@
     <div class="row"> 
         @foreach ($topics as $topic)
 
-            <div class="m-4 p-4 topic">
+            <div class="m-4 p-4 topic" style="width:200px">
 
                 <p>{{ ucfirst($topic->title) }}</p>
                 <a href="/tests/{{ $topic->id }}-{{Str::slug($topic->title)}}" class="btn btn-dark"> 
