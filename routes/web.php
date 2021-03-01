@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 Route::get('/', 'HomeController@index')->name('home');
 
 Route::get ('/tests',                'TestController@index')->name('test.index');
@@ -10,7 +10,7 @@ Route::get ('/tests/{topic}-{slug}', 'TestController@show') ->name('test.show');
 Route::post('/tests/{topic}-{slug}', 'TestController@store')->name('test.store');
 
 Route::get('/results/{test}',        'ResultController@show') ->name('result.show');
-Route::get('/results',               'ResultController@index')->name('result.index');
+Route::get('/results',               'ResultController@index')->name('result.index')->middleware('verified');
 
 Route::get('/secondTime', function () { return view('messages.secondTime'); });
 // Route::get ('/tests/{topic}-{slug}', 'TestController@show')->middleware('second.time');
