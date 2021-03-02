@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-Auth::routes(['verify' => true]);
+Auth::routes();
 Route::get('/', 'HomeController@index')->name('home');
 
 Route::get ('/tests',                'TestController@index')->name('test.index');
