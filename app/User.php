@@ -13,7 +13,7 @@ use Illuminate\Notifications\Notifiable;
  * @var string $password 
  * @var bool $admin 
 */
-class User extends Authenticatable implements MustVerifyEmail
+class User extends Authenticatable 
 {
     use  Notifiable;
 
