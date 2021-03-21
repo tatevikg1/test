@@ -22,6 +22,7 @@ window.Vue = require('vue');
 Vue.component('topics-table', require('./components/TopicsTable.vue').default);
 Vue.component('questions', require('./components/Questions.vue').default);
 Vue.component('options', require('./components/Options.vue').default);
+Vue.component('language-switcher', require('./components/LanguageSwitcher.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

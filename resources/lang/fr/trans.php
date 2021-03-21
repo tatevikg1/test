@@ -21,7 +21,7 @@ return [
     'all_tests' => 'Tous les tests',
     'my_test_results' => 'Mes résultats de test',
     'pass_test' => 'Passer le test',
-    'invalid_test_number' => 'Numéro de test est invalide!'
+    'invalid_test_number' => 'Numéro de test est invalide!',
 
     'dear' => 'Chère',
     'so_far_you_have_completed' => 'jusqu\'à présent, vous avez terminé',

@@ -3,18 +3,21 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-Auth::routes();
-Route::get('/', 'HomeController@index')->name('home');
+Route::redirect('/', app()->getLocale());
 
-Route::get ('/tests',                'TestController@index')->name('test.index');
-Route::get ('/tests/{topic}-{slug}', 'TestController@show') ->name('test.show');
-Route::post('/tests/{topic}-{slug}', 'TestController@store')->name('test.store');
+Route::group(['prefix' => '{language}'], function() {
+    Auth::routes();
 
-Route::get('/results/{test}',        'ResultController@show') ->name('result.show');
-Route::get('/results',               'ResultController@index')->name('result.index')->middleware('verified');
-
-Route::get('/secondTime', function () { return view('messages.secondTime'); });
-// Route::get ('/tests/{topic}-{slug}', 'TestController@show')->middleware('second.time');
+    Route::get('/',                      'HomeController@index')->name('home');
+    Route::get ('/tests',                'TestController@index')->name('test.index');
+    Route::get ('/tests/{topic}-{slug}', 'TestController@show') ->name('test.show');
+    Route::post('/tests/{topic}-{slug}', 'TestController@store')->name('test.store');
+    
+    Route::get('/results/{test}',        'ResultController@show') ->name('result.show');
+    Route::get('/results',               'ResultController@index')->name('result.index')->middleware('verified');
+    
+    Route::get('/secondTime', function () { return view('messages.secondTime'); });
+});
 
 
 Route::prefix('admin')->group(function () {
@@ -29,3 +32,5 @@ Route::prefix('admin')->group(function () {
     Route::get      ('/question/{question}/edit','Admin\QuestionController@edit')  ->name('admin.question.edit');
     Route::patch    ('/question/{question}',    'Admin\QuestionController@update') ->name('admin.question.update');
 });
+
+

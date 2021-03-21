@@ -21,7 +21,7 @@ return [
     'all_tests' => 'Todos los cuestionarios',
     'my_test_results' => 'Mis respuestas al cuestionario',
     'pass_test' => 'Pasar el examen',
-    'invalid_test_number' => 'El número de prueba no es válido!'
+    'invalid_test_number' => 'El número de prueba no es válido!',
 
     'dear' => 'Querido(/a)',
     'so_far_you_have_completed' => 'hasta ahora has aprobado',
