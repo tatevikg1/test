@@ -32,8 +32,13 @@ class QuestionRequest extends FormRequest
         ];
     }
 
+    /**
+     * Set the validation messages.
+     *
+     * @return array
+     */
     public function messages()
-{
+    {
         return [
             'question.required' => 'How can they answar to a non-existing question?',
             'question.max' => 'Your question is too long. Make it simple.',

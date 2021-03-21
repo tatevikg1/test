@@ -13,6 +13,10 @@ class ResultController extends Controller
         $this->middleware('auth');
     }
 
+    /**
+     * @var App\User $user
+     * @var App\Topic $topics
+    */
     public function index()
     {
         $user = Auth::user();

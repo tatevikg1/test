@@ -18,7 +18,6 @@ class Admin
     {
         if (Auth::id() != 1) {
             abort(404);
-            // return redirect(RouteServiceProvider::HOME);
         }
         return $next($request);
     }

@@ -14,7 +14,9 @@ class Question extends Model
 {
     protected $guarded = [];
 
-
+    /**
+     * Returns the topic  question belongs to.
+    */
     public function topic()
     {
         return $this->belongsTo(Topic::class);

@@ -14,6 +14,9 @@ class TestController extends Controller
         $this->middleware(['auth', 'second.time']);
     }
 
+    /**
+     * @var App\Topic $topics
+    */
     public function index()
     {
         $topics = Topic::all();
@@ -43,20 +46,12 @@ class TestController extends Controller
      */
     public function store(Topic $topic, TestRequest $request)
     {
-        // $data = request()->validate([
-        //     'responses.*.questions_option_id'=>'required',
-        //     'responses.*.question_id'=>'required',
-        //     //'responses.*.point'=>'required',
-        // ]);
-        //
-        $data = $request->all();
-
         $test = new Test;
         $test->user_id = Auth::user()->id;
         $test->topic_id = $topic->id;
         $test->save();
 
-        $test->testAnswers()->createMany($data['responses']);
+        $test->testAnswers()->createMany($request['responses']);
 
         //$t->load('testAnswers.questionsOption');
 
