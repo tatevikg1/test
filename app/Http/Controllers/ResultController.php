@@ -30,7 +30,7 @@ class ResultController extends Controller
      * @param App\Test $test
      * @return view
     */
-    public function show(Test $test)
+    public function show($language, Test $test)
     {
         $users_score = 0;
         $total_points = 0;

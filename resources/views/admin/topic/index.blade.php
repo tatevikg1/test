@@ -12,7 +12,7 @@
                     <div class="btn btn-secondary" id="add">Add</div>
                 </div>
 
-                <topics-table  ref="topics"></topics-table>
+                <topics-table  ref="topics" language="{{ app()->getLocale() }}"></topics-table>
             </div>
         </div>
     </div>

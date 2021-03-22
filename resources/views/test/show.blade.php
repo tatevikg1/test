@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.nolang')
 @section('title', 'Quiz')
 
 @section('content')
@@ -11,7 +11,8 @@
                 </div>
 
             </div>
-            <form class="" action="/tests/{{ $topic->id }}-{{ Str::slug($topic->title) }}" method="post" name="theForm">
+            <!-- <form action="/{{ app()->getLocale() }}/tests/{{ $topic->id }}-{{ Str::slug($topic->title) }}" method="post" name="theForm"> -->
+            <form  action="{{ route('test.store', ['language' => app()->getLocale(), 'topic' => $topic->id, 'slug' =>Str::slug($topic->title)] ) }}" method="post" name="theForm">
                 @csrf
 
                 @foreach($topic->questions as $key=>$question)
@@ -46,7 +47,7 @@
                     </div>
                 @endforeach
 
-                <input type="submit" class="btn btn-dark" value={{__('trans.submit_answer')}}>
+                <input type="submit" class="btn btn-dark" value={{__('trans.submit_answer') }}>
             </form>
 
         </div>

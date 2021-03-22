@@ -24,14 +24,17 @@
         props: {
             topic: {
                 required: true
-            }
+            },
+            language: {
+                required: true
+            },
         },
 
         data: function () {
             return {
                 csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
                 visible: true,
-                url: `/admin/question/${ this.topic.id }`,
+                url: `/${this.language}/admin/question/${ this.topic.id }`,
             }
         },
 
@@ -39,12 +42,12 @@
             deleteTopic(id){
                 event.preventDefault();
                 this.visible = false;
-                axios.delete(`/admin/topic/${id}`)
+                axios.delete(`/en/admin/topic/${id}`)
                 .then(() => {
                     console.log('Topic was deleted.');
                 })
                 .catch(() => {
-                    console.log('Delete request is made twice. Dont pay attention ;)');
+                    console.log('Dont know why but delete request is made twice.');
                 });
             }
         }

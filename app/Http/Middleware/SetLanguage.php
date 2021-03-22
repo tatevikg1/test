@@ -15,7 +15,7 @@ class SetLanguage
      */
     public function handle($request, Closure $next)
     {
-        \App::setlocale($request->language);
+        \App::setLocale($request->language);
         
         return $next($request);
     }

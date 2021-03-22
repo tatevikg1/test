@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.nolang')
 @section('title', 'Quiz Result')
 
 @section('content')

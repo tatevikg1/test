@@ -11,7 +11,7 @@
                  style="width:200px;background-color: #f7f7f7; border: 1px solid grey; border-radius: 10px;">
 
                 <p>{{ ucfirst($topic->title) }}</p>
-                <a href="/tests/{{ $topic->id }}-{{Str::slug($topic->title)}}" class="btn btn-dark"> 
+                <a href="/{{ app()->getLocale() }}/tests/{{ $topic->id }}-{{Str::slug($topic->title)}}" class="btn btn-dark"> 
                     {{__('trans.pass_test')}}
                 </a>
             </div>

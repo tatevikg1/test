@@ -29,13 +29,13 @@ class TestController extends Controller
      * @param string $slug
      * @return view
      */
-    public function show(Topic $topic, $slug)
+    public function show($language, Topic $topic, $slug)
     {
         $topic->load(['questions.questions_options' => function($query)
         {
             $query->orderBy('questions_options', 'asc');
         }]);
-
+        
         return view('test.show', compact('topic'));
     }
 
@@ -44,7 +44,7 @@ class TestController extends Controller
      * @param App\Http\Requests\TestRequest $request
      * @return view
      */
-    public function store(Topic $topic, TestRequest $request)
+    public function store($language, Topic $topic, TestRequest $request)
     {
         $test = new Test;
         $test->user_id = Auth::user()->id;
@@ -55,7 +55,7 @@ class TestController extends Controller
 
         //$t->load('testAnswers.questionsOption');
 
-        return redirect()->route('result.show', [$test->id]);
+        return redirect()->route('result.show', [$language, $test->id]);
 
     }
 

@@ -2056,38 +2056,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['locale', 'link-en', 'link-fr', 'link-es'],
   data: function data() {
@@ -2217,6 +2185,9 @@ __webpack_require__.r(__webpack_exports__);
   props: {
     topic: {
       required: true
+    },
+    language: {
+      required: false
     }
   },
   beforeMount: function beforeMount() {
@@ -2265,6 +2236,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['language'],
   beforeMount: function beforeMount() {
     this.getTopics();
   },
@@ -39219,7 +39191,11 @@ var render = function() {
       return _c(
         "div",
         { key: question.id, staticClass: "container" },
-        [_c("Question", { attrs: { question: question } })],
+        [
+          _c("Question", {
+            attrs: { question: question, language: _vm.language }
+          })
+        ],
         1
       )
     }),
@@ -39255,7 +39231,7 @@ var render = function() {
       return _c(
         "div",
         { key: topic.id, staticClass: "container" },
-        [_c("Topic", { attrs: { topic: topic } })],
+        [_c("Topic", { attrs: { topic: topic, language: _vm.language } })],
         1
       )
     }),
@@ -51470,7 +51446,7 @@ var app = new Vue({
   el: '#app'
 });
 
-if (window.location.pathname == '/admin/topic') {
+if (window.location.toString().indexOf("/admin/topic") != -1) {
   document.getElementById('add').addEventListener('click', function () {
     document.querySelector('.bg-modal').style.display = 'flex';
   });
@@ -51479,7 +51455,7 @@ if (window.location.pathname == '/admin/topic') {
     app.$refs.topics.getTopics();
   });
   document.querySelector('#addTopic').addEventListener('click', function () {
-    var url = '/admin/topic';
+    var url = '/en/admin/topic';
     var formData = $(addTopicForm).serializeArray();
     $.post(url, formData).done(function (data) {
       document.querySelector('#topic').value = '';

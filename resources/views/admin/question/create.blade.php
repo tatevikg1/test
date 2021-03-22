@@ -11,7 +11,7 @@
             </div>
         </div>
         <div class="card-body">
-            <form  action="{{ route('admin.question.store', ['topic' => $topic->id]) }}"  method="post">
+            <form  action="{{ route('admin.question.store', ['language' => 'en', 'topic' => $topic->id]) }}"  method="post">
                 @csrf
                 <div class="list-group">
                     <input type="text" placeholder="question" name="question" value="{{ old('question') }}" min="1" class="@error('question') is-invalid @enderror">

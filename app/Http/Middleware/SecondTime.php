@@ -26,7 +26,7 @@ class SecondTime
 
         if (in_array($topic_id, $topics)) {
 
-            return  redirect('/secondTime');
+            return  redirect(app()->getLocale() . '/secondTime');
         }
         return $next($request);
     }

@@ -30,7 +30,7 @@
                             @if($count < 10)
 
                             <tr data-toggle="tooltip" title="click on topic title to see more detales">
-                                <td><a style="color:black" href="{{ route('result.show', $test->id) }}">{{ ucfirst($topics[$key]->title) }}</a></td>
+                                <td><a style="color:black" href="{{ route('result.show',['language' => app()->getLocale(), 'test' => $test->id]) }}">{{ ucfirst($topics[$key]->title) }}</a></td>
                                 <td>{{ $test->created_at }}</td>
                                 <td>{{ $test->score }}%</td>
                             </tr>

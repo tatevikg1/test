@@ -35,6 +35,9 @@ __webpack_require__.r(__webpack_exports__);
   props: {
     question: {
       required: true
+    },
+    language: {
+      required: true
     }
   },
   beforeMount: function beforeMount() {
@@ -45,7 +48,7 @@ __webpack_require__.r(__webpack_exports__);
       options: this.options,
       option: this.option,
       visible: true,
-      editLink: "/admin/question/".concat(this.question.id, "/edit")
+      editLink: "".concat(this.language, "/admin/question/").concat(this.question.id, "/edit")
     };
   },
   methods: {
@@ -57,7 +60,7 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     deleteQuestion: function deleteQuestion() {
-      axios["delete"]("/admin/question/".concat(this.question.id));
+      axios["delete"]("/".concat(this.language, "/admin/question/").concat(this.question.id));
       this.visible = false;
     }
   }

@@ -83,14 +83,6 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
-                        <li>
-                            <language-switcher 
-                                locale="{{ app()->getLocale() }}"
-                                link-en="{{ route(Route::currentRouteName(), 'en') }}" 
-                                link-fr="{{ route(Route::currentRouteName(), 'fr') }}"
-                                link-es="{{ route(Route::currentRouteName(), 'es') }}">
-                            </language-switcher>
-                        </li>
                        
                         @guest
                             <li class="nav-item">

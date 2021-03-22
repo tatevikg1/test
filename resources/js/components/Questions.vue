@@ -1,7 +1,7 @@
 <template>
     <div class="table-question">
         <div v-for="question in questions" :key="question.id" class="container">
-            <Question :question="question"></Question>
+            <Question :question="question" :language="language"></Question>
         </div>
     </div>
 </template>
@@ -12,6 +12,9 @@
         props:{
             topic: {
                 required:true,
+            },
+            language: {
+                required:false,
             }
         },
 

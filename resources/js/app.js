@@ -33,7 +33,7 @@ const app = new Vue({
     el: '#app',
 });
 
-if(window.location.pathname == '/admin/topic')
+if(window.location.toString().indexOf("/admin/topic") != -1)
 {
 
     document.getElementById('add').addEventListener('click', function(){
@@ -47,7 +47,7 @@ if(window.location.pathname == '/admin/topic')
 
     document.querySelector('#addTopic').addEventListener('click', function(){
 
-        var url = '/admin/topic';
+        var url = '/en/admin/topic';
         var formData = $(addTopicForm).serializeArray();
         $.post(url, formData).done(function (data) {
             document.querySelector('#topic').value = '';

@@ -2,7 +2,7 @@
 
     <div class="table-topics">
         <div  v-for="topic  in topics" :key="topic.id" class="container">
-            <Topic :topic="topic"></Topic>
+            <Topic :topic="topic" :language="language"></Topic>
         </div>
     </div>
 </template>
@@ -10,6 +10,9 @@
 <script>
 
     export default{
+        props:[
+            'language'
+        ],
 
         beforeMount(){
             this.getTopics();

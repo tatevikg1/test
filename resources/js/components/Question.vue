@@ -26,6 +26,9 @@
         props:{
             question: {
                 required:true,
+            },
+            language:{
+                required:true,
             }
         },
 
@@ -38,7 +41,7 @@
                 options: this.options,
                 option:this.option,
                 visible:true,
-                editLink:`/admin/question/${this.question.id}/edit`
+                editLink:`${this.language}/admin/question/${this.question.id}/edit`
             }
         },
 
@@ -51,7 +54,7 @@
             },
 
             deleteQuestion: function(){
-                axios.delete(`/admin/question/${this.question.id}`);
+                axios.delete(`/${this.language}/admin/question/${this.question.id}`);
                 this.visible = false;
             },
         },

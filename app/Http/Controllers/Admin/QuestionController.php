@@ -17,7 +17,7 @@ class QuestionController extends Controller
         $this->middleware('admin');
     }
 
-    public function index(Topic $topic)
+    public function index ($language, Topic $topic)
     {
         return view('admin.question.index', compact('topic'));
     }
@@ -39,7 +39,7 @@ class QuestionController extends Controller
             }
         }
 
-        return redirect()->route('admin.question.index', ['topic' => $request['topic']]);
+        return redirect()->route('admin.question.index', ['language' => app()->getLocale(), 'topic' => $request['topic']]);
     }
 
     public function edit(Question $question)

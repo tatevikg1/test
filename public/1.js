@@ -34,23 +34,26 @@ __webpack_require__.r(__webpack_exports__);
   props: {
     topic: {
       required: true
+    },
+    language: {
+      required: true
     }
   },
   data: function data() {
     return {
       csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
       visible: true,
-      url: "/admin/question/".concat(this.topic.id)
+      url: "/".concat(this.language, "/admin/question/").concat(this.topic.id)
     };
   },
   methods: {
     deleteTopic: function deleteTopic(id) {
       event.preventDefault();
       this.visible = false;
-      axios["delete"]("/admin/topic/".concat(id)).then(function () {
+      axios["delete"]("/en/admin/topic/".concat(id)).then(function () {
         console.log('Topic was deleted.');
       })["catch"](function () {
-        console.log('Delete request is made twice. Dont pay attention ;)');
+        console.log('Dont know why but delete request is made twice.');
       });
     }
   }
