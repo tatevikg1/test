@@ -37,5 +37,6 @@ return [
     'wrong_answer' => 'Respuesta incorrecta',
     'correct_answer' => 'Respuesta correcta',
 
+    'you_can_pass_test_only_once' => 'Usted puede pasar un cuestionario solo una vez!',
 
 ];

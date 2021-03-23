@@ -2,8 +2,6 @@
 
 return [
 
-
-
     'login' => 'Login',
     'logout' => 'Logout',
     'register' => 'Register',
@@ -37,5 +35,6 @@ return [
     'wrong_answer' => 'Wrong answer',
     'correct_answer' => 'Correct answer',
 
+    'you_can_pass_test_only_once' => 'You can pass a test only once!',
 
 ];

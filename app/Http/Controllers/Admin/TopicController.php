@@ -34,7 +34,7 @@ class TopicController extends Controller
         return response('Topic was added', 200)->header('Content-Type', 'text/plain');
     }
 
-    public function destroy(Topic $topic)
+    public function destroy($translate, Topic $topic)
     {
         return $topic->delete();
     }

@@ -37,4 +37,7 @@ return [
     'wrong_answer' => 'Mauvaise réponse',
     'correct_answer' => 'Bonne réponse',
 
+    'you_can_pass_test_only_once' => 'Vous ne pouvez passer un quiz que une seule fois',
+
+
 ];
